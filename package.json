@@ -1,0 +1,23 @@
+{
+  "name": "a2-upg2",
+  "version": "1.0.0",
+  "description": "Assignment 2 in A2 [ESC] Hacker Escape Room front page",
+  "homepage": "https://github.com/luddekallin/A2-upg2#readme",
+  "bugs": {
+    "url": "https://github.com/luddekallin/A2-upg2/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luddekallin/A2-upg2.git"
+  },
+  "license": "ISC",
+  "author": "Ludwig Kallin",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "sass": "^1.105.2"
+  }
+}

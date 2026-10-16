@@ -1,0 +1,116 @@
+html {
+  font-size: 25px;
+  font-family: "Roboto";
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  background-color: #011827;
+  display: grid;
+  grid-template-columns: 6.8rem 3.6rem auto;
+}
+.header__logo {
+  margin: 1rem 0 1rem 1rem;
+  width: 5.12rem;
+}
+.header__title {
+  color: white;
+  font-weight: bold;
+  margin-top: 0.88rem;
+}
+.header__img {
+  width: 100%;
+  grid-column: 1/4;
+}
+
+.btns__on-site {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 3.2rem;
+  background-color: #8ACFE5;
+  padding: 0.72rem 1.92rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.btns__online {
+  display: flex;
+  justify-content: center;
+  font-size: 0.64rem;
+  font-weight: bold;
+  color: #36769D;
+  text-decoration: underline;
+}
+
+.quotes {
+  display: grid;
+  grid-template-columns: 4rem auto;
+  margin: 2rem 0.8rem;
+}
+.quotes__img {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+}
+.quotes__text {
+  font-style: italic;
+  margin: 0;
+}
+.quotes__tag {
+  grid-column: 2/3;
+  margin-top: 0.12rem;
+  font-size: 0.72rem;
+}
+
+.popular-rooms-title {
+  font-size: 1.28rem;
+  display: flex;
+  justify-content: center;
+}
+
+.popular-rooms {
+  overflow: hidden;
+}
+.popular-rooms__room {
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 0.5rem;
+  width: 14.8rem;
+  height: 18.4rem;
+}
+.popular-rooms__room__img {
+  width: 100%;
+  border-radius: 8px 8px 0px 0px;
+}
+.popular-rooms__room__title {
+  font-size: 1.12rem;
+  margin: 0.3rem 0.7rem 0;
+}
+.popular-rooms__room__stars {
+  margin: -0.25rem 0.85rem;
+}
+.popular-rooms__room__stars__1 {
+  width: 0.5rem;
+}
+.popular-rooms__room__stars__participants {
+  font-size: 0.56rem;
+  padding-left: 0.4rem;
+}
+.popular-rooms__room__text {
+  font-size: 0.72rem;
+  margin: 1rem 0.7rem;
+}
+.popular-rooms__room__btn {
+  font-size: 0.64rem;
+  background-color: #E3170A;
+  color: white;
+  padding: 0.6rem 1.8rem;
+  border-radius: 5px;
+}

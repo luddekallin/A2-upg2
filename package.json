@@ -15,7 +15,8 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "sass --no-source-map src/main.scss output.css",
+    "watch": "sass --watch --no-source-map src/main.scss output.css"
   },
   "dependencies": {
     "sass": "^1.105.2"

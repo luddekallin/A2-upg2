@@ -60,7 +60,8 @@ body{
 .quotes{
     display: grid;
     grid-template-columns: 4rem auto;
-    margin: 2rem 0.8rem;
+    margin: 2.5rem 0.8rem;
+    margin-bottom: 3.8rem;
 
     &__img{
         border-radius: 50%;
@@ -84,21 +85,28 @@ body{
     font-size: 1.28rem;
     display: flex;
     justify-content: center;
+
+    
 }
 .popular-rooms{
     display: flex;
-    overflow: scroll;
-    overflow-x: auto;
+    width: 100%;
+    height: 19rem;
+
+    overflow: auto;
     scroll-snap-type: x mandatory;
 
     &__room{
-        flex-direction: column;
+        list-style-type: none;
+        scroll-snap-align: center;
 
+        flex: 0 0 14rem;
+
+        
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         margin: 0.5rem;
-        width: 14.8rem;
-        height: 18rem;
+        
         &__img{
             width: 100%;
             border-radius: 8px 8px 0px 0px;
@@ -129,6 +137,11 @@ body{
             font-size: 0.64rem;
             @include btn-red();                 
         }
+        
+        /* &:active{
+        cursor: -webkit-grabbing;
+        cursor: grabbing;
+    } */
     }
 }
 

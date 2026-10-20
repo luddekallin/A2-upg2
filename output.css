@@ -39,6 +39,7 @@ body {
 .btns__online {
   display: flex;
   justify-content: center;
+  margin-bottom: 2rem;
   font-size: 0.64rem;
   font-weight: bold;
   color: #36769D;
@@ -72,18 +73,18 @@ body {
 }
 
 .popular-rooms {
-  overflow: hidden;
-}
-.popular-rooms__room {
   display: flex;
-  flex-direction: column;
+  overflow: scroll;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+}
+.popular-rooms__room {
+  flex-direction: column;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin: 0.5rem;
   width: 14.8rem;
-  height: 18.4rem;
+  height: 18rem;
 }
 .popular-rooms__room__img {
   width: 100%;
@@ -108,9 +109,114 @@ body {
   margin: 1rem 0.7rem;
 }
 .popular-rooms__room__btn {
+  margin-left: 40%;
+  margin-right: 5%;
   font-size: 0.64rem;
   background-color: #E3170A;
   color: white;
   padding: 0.6rem 1.8rem;
   border-radius: 5px;
+}
+
+.panels__info {
+  background-color: #011827;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.panels__info__text {
+  font-size: 1.12rem;
+  text-align: center;
+  margin: 3rem 0.7rem 1.5rem;
+}
+.panels__info__btn {
+  color: #8ACFE5;
+  border: 2px solid #8ACFE5;
+  border-radius: 3px;
+  padding: 0.5rem 2rem;
+  margin-bottom: 3rem;
+  font-weight: bold;
+}
+.panels__img1 {
+  width: 100%;
+}
+.panels__img2 {
+  width: 100%;
+  margin-top: 2.3rem;
+}
+.panels__1 {
+  margin: 1rem 0.7rem;
+}
+.panels__1__title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.panels__1__text {
+  font-size: 0.95rem;
+  margin-bottom: 2.3rem;
+}
+.panels__1__btn {
+  font-size: 0.95rem;
+  background-color: #E3170A;
+  color: white;
+  padding: 0.6rem 1.8rem;
+  border-radius: 4px;
+}
+.panels__2 {
+  margin: 1rem 0.7rem;
+}
+.panels__2__title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.panels__2__text {
+  font-size: 0.95rem;
+  margin-bottom: 2.3rem;
+}
+.panels__2__btn {
+  font-size: 0.95rem;
+  background-color: #E3170A;
+  color: white;
+  padding: 0.6rem 1.8rem;
+  border-radius: 4px;
+}
+
+.footer {
+  margin-top: 4rem;
+  padding: 2rem 0.7rem;
+  background-color: #011827;
+  color: white;
+  font-size: 0.72rem;
+}
+.footer__info {
+  margin-bottom: 1.5rem;
+}
+.footer__info__title {
+  font-weight: bold;
+  margin-bottom: -0.3rem;
+}
+.footer__site-map {
+  margin-bottom: 1.8rem;
+}
+.footer__site-map__title {
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+.footer__site-map__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.footer__follow {
+  margin-bottom: 1rem;
+}
+.footer__follow__title {
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+.footer__follow__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }

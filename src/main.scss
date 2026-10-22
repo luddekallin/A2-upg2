@@ -1,3 +1,7 @@
+$medium-screen-breakpoint: 870px;
+$medium-large-screen-breakpoint: 1080px;
+$large-screen-breakpoint: 1280px;
+
 @mixin btn-red {
     background-color: #E3170A;
     color: white;
@@ -17,6 +21,10 @@ body{
     background-color: #011827;
     display: grid;
     grid-template-columns: 6.8rem 3.6rem auto;
+    
+    @media screen and (min-width: $medium-screen-breakpoint){
+        grid-template-columns: 6.8rem auto;
+    }
 
     &__logo{
         margin: 1rem 0 1rem 1rem;
@@ -27,41 +35,105 @@ body{
         color:white;
         font-weight: bold;
         margin-top: 0.88rem;
+
+        @media screen and (min-width: $medium-screen-breakpoint) {
+            margin-top: 15%;
+            font-size: 1.6rem;
+        }
     }
 
     &__img{
         width: 100%;
         grid-column: 1 / 4;
     }
+
+    &__nav{
+        display: none;
+        font-size: 0.9rem;
+        color: white;
+
+        &__element:hover{
+            cursor: pointer;
+            color: #8ACFE5;
+        }
+
+        @media screen and (min-width: $medium-screen-breakpoint){
+            display: flex;
+            grid-column: 1 / 4;
+            justify-content: space-around;
+            margin: 0.6rem 3rem 1rem; 
+        }
+    }
 }
 
-.btns__on-site{
-    display: flex;
-    justify-content: center;
-    margin: 1rem 3.2rem;
+.btns{
+    display: grid;
+    grid-template-columns: auto 13.5rem auto;
+
+    @media screen and (min-width: $medium-screen-breakpoint){
+        grid-template-columns: auto 13.5rem 13.5rem auto;
+        margin-top: -2.3rem;
+    }
+
+    &__on-site{
+        grid-column: 2 / 3;
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
     
-    background-color: #8ACFE5;
-    padding: 0.72rem 1.92rem;
-    font-weight: bold;
-    border-radius: 5px;   
-}
+        background-color: #8ACFE5;
+        padding: 0.72rem 1.92rem;
+        font-weight: bold;
+        border-radius: 5px;  
+        
+        @media screen and (min-width: $medium-screen-breakpoint){
+            grid-column: 3 / 4;
+            height: 1.22rem;
+            margin-left: 0.5rem;
+        }
+    }
 
-.btns__online{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
+    &__online{
+        grid-column: 2 / 3;
+        display: flex;
+        justify-content: center;
+        margin: 1rem 0 2rem;
     
-    font-size: 0.64rem;
-    font-weight: bold;
-    color: #36769D;
-    text-decoration: underline;
+        font-size: 0.64rem;
+        font-weight: bold;
+        color: #36769D;
+        text-decoration: underline;
+        
+        @media screen and (min-width: $medium-screen-breakpoint){
+            grid-column: 2 / 3;
+            grid-row: 1;
+            margin-right: 0.5rem;
+
+            text-decoration: none;
+            font-size: 1rem;
+            
+            background-color: #E3170A;
+            color: white;
+            padding: 0.72rem 1.92rem;
+            border-radius: 5px;
+        }
+    }
 }
 
+.quotes-container{
+    display: flex;
+    @media sceeen and (min-width: $medium-screen-breakpoint){
+        justify-content: space-around;
+    }
+}
 .quotes{
     display: grid;
     grid-template-columns: 4rem auto;
-    margin: 2.5rem 0.8rem;
-    margin-bottom: 3.8rem;
+    margin: 2.5rem 0.8rem 3.8rem;
+
+    @media screen and (min-width: $medium-screen-breakpoint){
+        margin: 2.5rem 0.8rem 3.8rem 3rem;
+    }
 
     &__img{
         border-radius: 50%;
@@ -81,6 +153,33 @@ body{
     }
 }
 
+.quotes-2{
+    display: none;
+
+    @media screen and (min-width: $medium-screen-breakpoint){
+        display: grid;
+        grid-template-columns: 4rem auto;
+        margin: 2.5rem 2rem 3.8rem 0.8rem;
+
+        &__img{
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+        }
+
+        &__text{
+            font-style: italic;
+            margin: 0;
+        }
+
+        &__tag{
+            grid-column: 2 / 3;
+            margin-top: 0.12rem;
+            font-size: 0.72rem;
+        }
+    }
+}
+
 .popular-rooms-title{
     font-size: 1.28rem;
     display: flex;
@@ -88,6 +187,7 @@ body{
 
     
 }
+
 .popular-rooms{
     display: flex;
     width: 100%;
@@ -96,13 +196,21 @@ body{
     overflow: auto;
     scroll-snap-type: x mandatory;
 
+    @media screen and (min-width: $medium-screen-breakpoint){
+        margin-bottom: 4rem;
+    }
+
+    @media screen and (min-width: 1220px){
+        justify-content: center;
+        margin-left: -1.5rem;
+    }
+
     &__room{
         list-style-type: none;
         scroll-snap-align: center;
 
         flex: 0 0 14rem;
 
-        
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         margin: 0.5rem;
@@ -146,6 +254,11 @@ body{
 }
 
 .panels{
+    display: grid;
+
+    @media screen and (min-width: $medium-large-screen-breakpoint){
+        grid-template-columns: 50% 50%;        
+    }
     
     &__info{
         background-color: #011827;
@@ -153,13 +266,24 @@ body{
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+
+        @media screen and (min-width: $medium-large-screen-breakpoint){
+            grid-column: 1/3;   
+        }
 
         &__text{
             font-size: 1.12rem;
             text-align: center;
 
             margin: 3rem 0.7rem 1.5rem;
+
+            @media screen and (min-width: $medium-large-screen-breakpoint){
+
+            }
+
+            @media screen and (min-width: $large-screen-breakpoint){
+                margin: 5rem 27% 1.5rem;
+            }
         }
 
         &__btn{
@@ -168,22 +292,43 @@ body{
             border-radius: 3px;
             padding: 0.5rem 2rem;
             margin-bottom: 3rem;
-
             font-weight: bold;
+
+            @media screen and (min-width: $large-screen-breakpoint){
+                margin-bottom: 6rem;
+            }
         }
     }
 
     &__img1{
         width: 100%;
+        
+        @media screen and (min-width: $medium-large-screen-breakpoint){
+            grid-column: 1/2;
+            grid-row: 2;    
+        }
     }
 
     &__img2{
         width: 100%;
         margin-top: 2.3rem;
+
+        @media screen and (min-width: $medium-large-screen-breakpoint){
+            grid-column: 2/3;
+            margin-top: 0;
+        }
     }
 
     &__1{
         margin: 1rem 0.7rem;
+
+        @media screen and (min-width: $medium-large-screen-breakpoint){
+                
+        }
+
+        @media screen and (min-width: $large-screen-breakpoint){
+            margin: 1rem 4.5rem;
+        }
 
         &__title{
             font-weight: bold;
@@ -193,6 +338,10 @@ body{
         &__text{
             font-size: 0.95rem;
             margin-bottom: 2.3rem;
+
+            @media screen and (min-width: $large-screen-breakpoint){
+                margin-bottom: 1.4rem;
+            }
         }
 
         &__btn{
@@ -208,6 +357,16 @@ body{
     &__2{
         margin: 1rem 0.7rem;
 
+        @media screen and (min-width: $medium-large-screen-breakpoint){
+            grid-column: 1/2;
+            grid-row: 3;
+            
+        }
+
+        @media screen and (min-width: $large-screen-breakpoint){ 
+            margin: 1rem 4.5rem;
+        }
+
         &__title{
             font-weight: bold;
             font-size: 1.3rem;
@@ -216,6 +375,10 @@ body{
         &__text{
             font-size: 0.95rem;
             margin-bottom: 2.3rem;
+
+            @media screen and (min-width: $medium-large-screen-breakpoint){
+                margin-bottom: 1.4rem;
+            }
         }
 
         &__btn{
@@ -230,11 +393,17 @@ body{
 }
 
 .footer{
+    display: grid;
     margin-top: 4rem;
     padding: 2rem 0.7rem;
     background-color: #011827;
     color: white;
     font-size: 0.72rem;
+
+    @media screen and (min-width: $medium-screen-breakpoint){
+        grid-template-columns: 60% 20% 20%;
+        padding: 5rem 2rem;
+    }
 
     &__info{
         margin-bottom: 1.5rem;
@@ -242,6 +411,10 @@ body{
         &__title{
             font-weight: bold;
             margin-bottom: -0.3rem;
+        }
+
+        @media screen and (min-width: $medium-screen-breakpoint){
+            margin: 0 8rem 1.5rem 4rem;
         }
     }
 
@@ -257,6 +430,7 @@ body{
             padding: 0;
             margin: 0;
         }
+
     }
 
     &__follow{

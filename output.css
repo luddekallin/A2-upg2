@@ -261,12 +261,6 @@ h1, h2, h3, h4 {
   padding: 0.6rem 1.5rem;
   border-radius: 5px;
 }
-.popular-rooms__room {
-  /* &:active{
-      cursor: -webkit-grabbing;
-      cursor: grabbing;
-  } */
-}
 
 .panels {
   display: grid;

@@ -5,18 +5,29 @@ $large-screen-breakpoint: 1280px;
 @mixin btn-red {
     background-color: #E3170A;
     color: white;
-    padding: 0.6rem 1.8rem;
+    padding: 0.6rem 1.5rem;
     border-radius: 5px;
 }
 
 html{
-    font-size: 25px;
+    font-size: 25px !important;
     font-family: 'Roboto';
 }
 
 body{
     margin: 0;
 }
+
+//reset css default font sizing and style
+h1, h2, h3, h4{
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
 .header{
     background-color: #011827;
     display: grid;
@@ -37,14 +48,31 @@ body{
         margin-top: 0.88rem;
 
         @media screen and (min-width: $medium-screen-breakpoint) {
-            margin-top: 15%;
+            margin-top: 2.7rem;
             font-size: 1.6rem;
         }
     }
 
-    &__img{
-        width: 100%;
-        grid-column: 1 / 4;
+    &__img-container{
+        grid-column: 1/4;
+        background-image: url(../images/main-img.png);
+        background-size: cover;
+
+        @media screen and (min-width: $medium-screen-breakpoint){
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            background-position: 18%;
+            background-size: 130%;
+            
+        }
+
+        &__img{
+            width: 100%;
+            @media screen and (min-width: $medium-screen-breakpoint){
+                display: none;
+            }
+        }
     }
 
     &__nav{
@@ -111,7 +139,6 @@ body{
 
             text-decoration: none;
             font-size: 1rem;
-            
             background-color: #E3170A;
             color: white;
             padding: 0.72rem 1.92rem;
@@ -126,6 +153,7 @@ body{
         justify-content: space-around;
     }
 }
+
 .quotes{
     display: grid;
     grid-template-columns: 4rem auto;
@@ -184,20 +212,17 @@ body{
     font-size: 1.28rem;
     display: flex;
     justify-content: center;
-
-    
 }
 
 .popular-rooms{
     display: flex;
     width: 100%;
     height: 19rem;
-
     overflow: auto;
     scroll-snap-type: x mandatory;
 
     @media screen and (min-width: $medium-screen-breakpoint){
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
     }
 
     @media screen and (min-width: 1220px){
@@ -210,6 +235,7 @@ body{
         scroll-snap-align: center;
 
         flex: 0 0 14rem;
+        height: 17rem;
 
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -219,11 +245,12 @@ body{
             width: 100%;
             border-radius: 8px 8px 0px 0px;
         }
+
         &__title{
             font-size: 1.12rem;
             margin: 0.3rem 0.7rem 0;
-            
         }
+
         &__stars{
             margin: -0.25rem 0.85rem;
             &__1{
@@ -232,17 +259,24 @@ body{
 
             &__participants{
                 font-size: 0.56rem;
-                padding-left: 0.4rem;  
+                padding-left: 0.4rem;
+                
+                @media screen and (min-width: 1220px){
+                    float: right;
+                    margin: 0.3rem -0.3rem;
+                }
             }
         }
+
         &__text{
             font-size: 0.72rem;
-            margin: 1rem 0.7rem;
+            margin: 1rem 0.4rem 0.7rem 0.6rem;
         }
+
         &__btn{
-            margin-left: 40%;
-            margin-right: 5%;
+            margin-left: 6.1rem;
             font-size: 0.64rem;
+            font-weight: bold;
             @include btn-red();                 
         }
         
@@ -257,7 +291,8 @@ body{
     display: grid;
 
     @media screen and (min-width: $medium-large-screen-breakpoint){
-        grid-template-columns: 50% 50%;        
+        grid-template-columns: 50% 50%;
+        margin-top: 1rem;      
     }
     
     &__info{
@@ -278,10 +313,6 @@ body{
             margin: 3rem 0.7rem 1.5rem;
 
             @media screen and (min-width: $medium-large-screen-breakpoint){
-
-            }
-
-            @media screen and (min-width: $large-screen-breakpoint){
                 margin: 5rem 27% 1.5rem;
             }
         }
@@ -331,7 +362,7 @@ body{
         }
 
         &__title{
-            font-weight: bold;
+            font-weight: 900;
             font-size: 1.3rem;
         }
 
@@ -346,7 +377,6 @@ body{
 
         &__btn{
             font-size: 0.95rem;
-            
             background-color: #E3170A;
             color: white;
             padding: 0.6rem 1.8rem;
@@ -368,7 +398,7 @@ body{
         }
 
         &__title{
-            font-weight: bold;
+            font-weight: 900;
             font-size: 1.3rem;
         }
 
@@ -405,6 +435,10 @@ body{
         padding: 5rem 2rem;
     }
 
+    @media screen and (min-width: $medium-large-screen-breakpoint){
+        margin-top: 7rem;
+    }
+
     &__info{
         margin-bottom: 1.5rem;
         
@@ -430,7 +464,6 @@ body{
             padding: 0;
             margin: 0;
         }
-
     }
 
     &__follow{

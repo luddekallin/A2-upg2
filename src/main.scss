@@ -55,7 +55,7 @@ h1, h2, h3, h4{
 
     &__img-container{
         grid-column: 1/4;
-        background-image: url(../images/main-img.png);
+        background-image: url(main-img.png);
         background-size: cover;
 
         @media screen and (min-width: $medium-screen-breakpoint){

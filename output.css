@@ -43,7 +43,7 @@ h1, h2, h3, h4 {
 }
 .header__img-container {
   grid-column: 1/4;
-  background-image: url(main-img.png);
+  background-image: url(https://luddekallin.github.io/A2-upg2/main-img.png);
   background-size: cover;
 }
 @media screen and (min-width: 870px) {

@@ -15,12 +15,16 @@ $large-screen-breakpoint: 1280px;
 }
 
 html{
-    font-size: 25px !important;
+    font-size: 25px;
     font-family: 'Roboto';
 }
 
 body{
     margin: 0;
+}
+
+.no-scroll{
+    overflow: hidden;
 }
 
 //reset css default font sizing and style
@@ -115,13 +119,17 @@ h1, h2, h3, h4{
         }
 
         &__menu{
+            display: flex;
             position: fixed;
             width: 90%;
             height: 95%;
             margin: 1rem;
             background-color: #011827;
             box-shadow: 0 0 20rem white;
+
             align-content: center;
+            justify-content: center;
+            flex-wrap: wrap;
             
             animation: fade-in 0.3s;
            
@@ -130,7 +138,7 @@ h1, h2, h3, h4{
             background: url(hamburger-close.svg) no-repeat;
 
             top: 2rem;
-            right: -5.5rem;
+            right: -90%;
             width: 2rem;
             height: 2rem;
             

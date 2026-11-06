@@ -8,12 +8,16 @@
   }
 }
 html {
-  font-size: 25px !important;
+  font-size: 25px;
   font-family: "Roboto";
 }
 
 body {
   margin: 0;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 h1, h2, h3, h4 {
@@ -107,6 +111,7 @@ h1, h2, h3, h4 {
   }
 }
 .header__nav__menu {
+  display: flex;
   position: fixed;
   width: 90%;
   height: 95%;
@@ -114,13 +119,15 @@ h1, h2, h3, h4 {
   background-color: #011827;
   box-shadow: 0 0 20rem white;
   align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
   animation: fade-in 0.3s;
 }
 .header__nav__menu__close-btn {
   position: relative;
   background: url(hamburger-close.svg) no-repeat;
   top: 2rem;
-  right: -5.5rem;
+  right: -90%;
   width: 2rem;
   height: 2rem;
   z-index: 1000;

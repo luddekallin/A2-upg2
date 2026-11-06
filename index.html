@@ -11,11 +11,15 @@
         <img class="header__logo" src="logo.png">
         <h1 class="header__title">Hacker Escape Rooms</h1>
 
-        <nav class="header__nav">
-            <a class="header__nav__element">Play online</a>
-            <a class="header__nav__element">Play on-site</a>
-            <a class="header__nav__element">The story</a>
-            <a class="header__nav__element">Contact us</a>
+        <button class="header__hamburger" id="menu-btn"></button>
+        
+        <nav id="nav-menu">
+            <ul class="header__nav" id="nav-menu__list">
+                <li><a class="header__nav__element">Play online</a></li>
+                <li><a class="header__nav__element">Play on-site</a></li>
+                <li><a class="header__nav__element">The story</a></li>
+                <li><a class="header__nav__element">Contact us</a></li>
+            </ul>
         </nav>
 
         <picture class="header__img-container">
@@ -43,7 +47,7 @@
     </section>
 
      
-    <section>
+    <section class="popular-rooms-container">
         <h1 class="popular-rooms-title">Popular challenges right now</h1>
         <ul class="popular-rooms">
             <li class="popular-rooms__room">
@@ -151,5 +155,6 @@
         </nav>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

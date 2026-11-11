@@ -56,7 +56,7 @@ h1, h2, h3, h4 {
 }
 .header__img-container {
   grid-column: 1/5;
-  background-image: url(https://luddekallin.github.io/A2-upg2/main-img.png);
+  background-image: url(images/main-img.png);
   background-size: cover;
 }
 @media screen and (min-width: 870px) {
@@ -79,7 +79,7 @@ h1, h2, h3, h4 {
 .header__hamburger {
   grid-column: 4/5;
   margin-top: 1rem;
-  background-image: url(hamburger-menu.svg);
+  background-image: url(images/hamburger-menu.svg);
   background-repeat: no-repeat;
   background-color: #011827;
   border: none;
@@ -125,7 +125,7 @@ h1, h2, h3, h4 {
 }
 .header__nav__menu__close-btn {
   position: relative;
-  background: url(hamburger-close.svg) no-repeat;
+  background: url(images/hamburger-close.svg) no-repeat;
   top: 2rem;
   right: -90%;
   width: 2rem;
@@ -174,6 +174,8 @@ h1, h2, h3, h4 {
   background-color: #8ACFE5;
   padding: 0.72rem 1.92rem;
   font-weight: bold;
+  color: black;
+  text-decoration: none;
   border-radius: 5px;
 }
 @media screen and (min-width: 870px) {
@@ -270,6 +272,7 @@ h1, h2, h3, h4 {
   font-size: 1.28rem;
   display: flex;
   justify-content: center;
+  margin: 1rem;
 }
 
 .popular-rooms {

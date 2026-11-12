@@ -78,8 +78,11 @@ input[type="checkbox"] {
 }
 
 .tags {
-  border-color: #99a7b4;
+  color: #99a7b4;
+  border: 0.12rem solid #99a7b4;
   border-radius: 62.4375rem;
+  background-color: transparent;
+  padding: 0.2rem 0.5rem;
 }
 
 .filter-nav__search {
@@ -90,10 +93,9 @@ input[type="checkbox"] {
 
 input[type="text"] {
   background-color: transparent;
-  border: solid;
+  border: 0.1rem solid #99a7b4;
   border-width: 0.12rem;
   border-radius: 0.1rem;
-  border-color: #99a7b4;
   height: 2.5rem;
   width: 15rem;
 }

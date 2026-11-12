@@ -1,3 +1,50 @@
+.challenges {
+  padding: 0 1rem;
+}
+.challenges__title {
+  font-size: 1.28rem;
+  text-align: center;
+  margin: 2rem 0 1rem;
+}
+.challenges__filter-btn {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid #36769D;
+  color: #36769D;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
+}
+.challenges__rooms {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media screen and (min-width: 870px) {
+  .challenges__rooms {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .challenges__rooms {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.challenges__card {
+  border-radius: 8px;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+}
+.challenges__card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

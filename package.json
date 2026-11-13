@@ -19,6 +19,6 @@
     "watch": "sass --watch --no-source-map src/main.scss output.css"
   },
   "dependencies": {
-    "sass": "^1.105.2"
+    "sass": "^1.108.2"
   }
 }

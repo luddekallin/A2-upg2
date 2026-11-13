@@ -65,6 +65,43 @@
       </nav>
     </footer>
 
+     <!--Formulär för steg 2(Ida)-->
+    <form class="booking-form">
+      <h1 class="title-room">Book this room "Title of Room"</h1>
+      <label for="name">Name</label>
+      <input type="text" id="name" />
+
+      <label for="email">E-mail</label>
+      <input type="email" id="email" />
+
+      <label for="times">What time?</label>
+      <select id="times" class="booking-form__times">
+        <option value="11:00">11:00</option>
+        <option value="12:30">12:30</option>
+        <option value="14:00">14:00</option>
+        <option value="15:30">15:30</option>
+        <option value="18:30">18:30</option>
+        <option value="20:00">20:00</option>
+      </select>
+
+      <label for="participants">How many participants?</label>
+      <select id="participants" class="booking-form__participants">
+        <option value="2">2 participants</option>
+        <option value="3">3 participants</option>
+        <option value="4">4 participants</option>
+        <option value="5">5 participants</option>
+        <option value="6">6 participants</option>
+      </select>
+
+      <button class="booking-form__submit">Submit booking</button>
+    </form>
+
+    <!--Tacksida Steg 3 (Ida)-->
+    <section class="thank-you">
+        <h1>Thank you!</h1>
+        <a class="btns__online" href="">Online challenges</a>
+    </section>
+
     <script src="challenges.js"></script>
   </body>
 </html>

@@ -567,3 +567,37 @@ h1, h2, h3, h4 {
   padding: 0;
   margin: 0;
 }
+
+/*Modal overlay box css (Ida)*/
+.modal-overlay{
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-overlay.show{
+  display: block;
+}
+
+.modal-box {
+  background: #011827;
+  width: 90%;
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  font-size: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}

@@ -1,62 +1,73 @@
-@import url("https://googleapis.com");
-body {
-  background-color: #293744;
-  border: 0.18rem solid #4b5862;
-  color: #ffffff;
-  max-height: 20rem;
-  max-width: 90rem;
-  margin: 2rem 3.5rem;
+.filter {
+  background-color: transparent;
+  border: 0.15rem solid #72808a;
+  font-family: "Roboto", sans-serif;
+  color: black;
+  height: 13rem;
+  max-width: 39rem;
+  margin: 1rem 2rem;
+  padding: 0.5rem 0 0.5rem 1rem;
+  box-sizing: border-box;
+  position: relative;
 }
 
-.filter-nav {
-  height: 20rem;
-  font-family: "Roboto", sans-serif;
-}
 .filter-navtitle {
-  margin: 1rem 1rem 3rem 1.5rem;
+  margin: 0 0 1rem 0;
 }
 .filter-navrating {
-  color: #ffffff;
-  margin-left: 1rem;
+  margin-left: 3.2rem;
 }
 .filter-navtags {
-  margin-left: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  margin-left: 1.4rem;
 }
-.filter-nav__search {
+.filter-navsearch {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1.5rem;
+  margin: 1.7rem 1rem 0 0;
+}
+.filter-nav label {
+  width: 21rem;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
 }
 
 .filter-columns {
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1.2fr;
+  grid-template-columns: 1fr 1.15fr 2.2fr;
   gap: 2rem;
-  margin-left: 1.5rem;
-  margin-right: 0.3rem;
+  margin-top: 2rem;
 }
 
 h1 {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.25rem;
+  font-size: 0.8rem !important;
   font-weight: 400;
+  margin: 0;
 }
 
 h2 {
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  margin: 0 0 0.5rem 0 !important;
+  width: 100%;
 }
 
 h3 {
-  font-family: "Roboto", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  margin-right: 6.4rem;
+  width: 12rem;
+  text-align: left;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.5rem !important;
 }
 
 p {
-  margin: 0 1em;
+  margin: 0 0.5rem 0 0.9rem;
+  font-size: 0.7rem;
 }
 
 ul {
@@ -68,77 +79,87 @@ ul li {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: smaller;
-  margin-bottom: 0.5rem;
+  font-size: 0.5rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  white-space: nowrap;
 }
 
 input[type=checkbox] {
   appearance: none;
   background-color: transparent;
-  border: 0.13rem solid #72808a;
+  border: 0.1rem solid #72808a;
   border-radius: 0.15rem;
-  width: 0.9rem;
-  height: 0.9rem;
+  width: 0.6rem;
+  height: 0.6rem;
   margin: 0;
   cursor: pointer;
 }
+input[type=checkbox]:checked {
+  background-color: #72808a;
+}
 input[type=text] {
   background-color: transparent;
-  border: 0.13rem solid #72808a;
+  border: 0.1rem solid #72808a;
   border-radius: 0.2rem;
-  height: 2.5rem;
-  width: 19rem;
-  font-size: 1.1rem;
+  height: 1.7rem;
+  width: 12rem;
+  font-size: 0.8rem;
   font-weight: 400;
-  padding: 0.6rem;
-  color: #72808a;
+  padding: 0.5rem 0.5rem;
+  box-sizing: border-box;
+  color: black;
 }
 input[type=text]::placeholder {
   color: #72808a;
 }
 
-.starRaiting {
+.starRating {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  color: #ffffff;
 }
 
 .Star {
   background-color: transparent;
   border: none;
-  width: 0.9rem;
-  height: 0.9rem;
-  margin-right: 0.5rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  cursor: pointer;
+  margin: 0 0.1rem;
   padding: 0;
 }
-.Star img {
-  width: 0.9rem;
-  height: 0.9rem;
+
+img {
+  width: 0.6rem;
+  height: 0.6rem;
   display: block;
 }
 
 .tags {
   color: #99a7b4;
-  border: 0.13rem solid #72808a;
+  border: 0.1rem solid #72808a;
   border-radius: 65rem;
   background-color: transparent;
-  height: 1.8rem;
-  width: auto;
-  padding: 0.2rem 0.4rem;
-  font-family: "Roboto", sans-serif;
-  font-size: 0.8rem;
+  height: 1.1rem;
+  padding: 0 0.4rem;
+  font-size: 0.5rem;
   font-weight: 700;
-  margin: 0.1rem 0;
+  margin: 0.05rem 0.03rem;
+  cursor: pointer;
+}
+.tags.active, .tags[aria-pressed=true] {
+  background-color: #72808a;
+  color: black;
+  border-color: #99a7b4;
 }
 
 #closeButton {
-  position: fixed;
+  position: absolute;
   background-color: transparent;
-  top: 2.5rem;
-  right: 4.3rem;
-  width: 1.8rem;
-  height: 2rem;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -150,8 +171,8 @@ input[type=text]::placeholder {
 #closeButton span {
   position: absolute;
   width: 100%;
-  height: 0.25rem;
-  background-color: #ffffff;
+  height: 0.15rem;
+  background-color: black;
   border-radius: 0.1rem;
 }
 #closeButton span:first-child {

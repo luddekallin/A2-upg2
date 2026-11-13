@@ -2,7 +2,9 @@ $medium-screen-breakpoint: 870px;
 $medium-large-screen-breakpoint: 1080px;
 $large-screen-breakpoint: 1280px;
 
-@use "challenges";
+@use "sections/challenges";
+@use "sections/booking";
+@use "sections/filter";
 
 @mixin btn-red {
     background-color: #E3170A;

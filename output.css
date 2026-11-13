@@ -1,3 +1,166 @@
+@import url("https://googleapis.com");
+body {
+  background-color: #293744;
+  border: 0.18rem solid #4b5862;
+  color: #ffffff;
+  max-height: 20rem;
+  max-width: 90rem;
+  margin: 2rem 3.5rem;
+}
+
+.filter-nav {
+  height: 20rem;
+  font-family: "Roboto", sans-serif;
+}
+.filter-navtitle {
+  margin: 1rem 1rem 3rem 1.5rem;
+}
+.filter-navrating {
+  color: #ffffff;
+  margin-left: 1rem;
+}
+.filter-navtags {
+  margin-left: 2rem;
+}
+.filter-nav__search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.filter-columns {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1.2fr;
+  gap: 2rem;
+  margin-left: 1.5rem;
+  margin-right: 0.3rem;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-right: 6.4rem;
+}
+
+p {
+  margin: 0 1em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: smaller;
+  margin-bottom: 0.5rem;
+}
+
+input[type=checkbox] {
+  appearance: none;
+  background-color: transparent;
+  border: 0.13rem solid #72808a;
+  border-radius: 0.15rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin: 0;
+  cursor: pointer;
+}
+input[type=text] {
+  background-color: transparent;
+  border: 0.13rem solid #72808a;
+  border-radius: 0.2rem;
+  height: 2.5rem;
+  width: 19rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding: 0.6rem;
+  color: #72808a;
+}
+input[type=text]::placeholder {
+  color: #72808a;
+}
+
+.starRaiting {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #ffffff;
+}
+
+.Star {
+  background-color: transparent;
+  border: none;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-right: 0.5rem;
+  padding: 0;
+}
+.Star img {
+  width: 0.9rem;
+  height: 0.9rem;
+  display: block;
+}
+
+.tags {
+  color: #99a7b4;
+  border: 0.13rem solid #72808a;
+  border-radius: 65rem;
+  background-color: transparent;
+  height: 1.8rem;
+  width: auto;
+  padding: 0.2rem 0.4rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 0.1rem 0;
+}
+
+#closeButton {
+  position: fixed;
+  background-color: transparent;
+  top: 2.5rem;
+  right: 4.3rem;
+  width: 1.8rem;
+  height: 2rem;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#closeButton span {
+  position: absolute;
+  width: 100%;
+  height: 0.25rem;
+  background-color: #ffffff;
+  border-radius: 0.1rem;
+}
+#closeButton span:first-child {
+  transform: rotate(45deg);
+}
+#closeButton span:last-child {
+  transform: rotate(-45deg);
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -20,7 +183,10 @@ body {
   overflow: hidden;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin: 0;
   padding: 0;
   border: 0;
@@ -100,7 +266,7 @@ h1, h2, h3, h4 {
 }
 .header__nav__element:hover {
   cursor: pointer;
-  color: #8ACFE5;
+  color: #8acfe5;
 }
 @media screen and (min-width: 870px) {
   .header__nav {
@@ -171,7 +337,7 @@ h1, h2, h3, h4 {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
-  background-color: #8ACFE5;
+  background-color: #8acfe5;
   padding: 0.72rem 1.92rem;
   font-weight: bold;
   color: black;
@@ -192,7 +358,7 @@ h1, h2, h3, h4 {
   margin: 1rem 0 2rem;
   font-size: 0.64rem;
   font-weight: bold;
-  color: #36769D;
+  color: #36769d;
   text-decoration: underline;
 }
 @media screen and (min-width: 870px) {
@@ -202,7 +368,7 @@ h1, h2, h3, h4 {
     margin-right: 0.5rem;
     text-decoration: none;
     font-size: 1rem;
-    background-color: #E3170A;
+    background-color: #e3170a;
     color: white;
     padding: 0.72rem 1.92rem;
     border-radius: 5px;
@@ -333,7 +499,7 @@ h1, h2, h3, h4 {
   margin-left: 6.1rem;
   font-size: 0.64rem;
   font-weight: bold;
-  background-color: #E3170A;
+  background-color: #e3170a;
   color: white;
   padding: 0.6rem 1.5rem;
   border-radius: 5px;
@@ -371,8 +537,8 @@ h1, h2, h3, h4 {
   }
 }
 .panels__info__btn {
-  color: #8ACFE5;
-  border: 2px solid #8ACFE5;
+  color: #8acfe5;
+  border: 2px solid #8acfe5;
   border-radius: 3px;
   padding: 0.5rem 2rem;
   margin-bottom: 3rem;
@@ -425,7 +591,7 @@ h1, h2, h3, h4 {
 }
 .panels__1__btn {
   font-size: 0.95rem;
-  background-color: #E3170A;
+  background-color: #e3170a;
   color: white;
   padding: 0.6rem 1.8rem;
   border-radius: 4px;
@@ -459,7 +625,7 @@ h1, h2, h3, h4 {
 }
 .panels__2__btn {
   font-size: 0.95rem;
-  background-color: #E3170A;
+  background-color: #e3170a;
   color: white;
   padding: 0.6rem 1.8rem;
   border-radius: 4px;

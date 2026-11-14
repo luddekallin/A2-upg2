@@ -9,10 +9,10 @@ $font-main: "Roboto", sans-serif;
   border: 0.15rem solid $border-accent;
   font-family: $font-main;
   color: $text-black;
-  height: 13rem;
+  min-height: 13rem;
   max-width: 39rem;
   margin: 1rem 2rem;
-  padding: 0.5rem 0 0.5rem 1rem;
+  padding: 0.5rem 0 1rem 1rem;
   box-sizing: border-box;
   position: relative;
 }
@@ -30,7 +30,7 @@ $font-main: "Roboto", sans-serif;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-    margin-left: 1.4rem;
+    margin-left: 1.5rem;
   }
 
   &search {
@@ -78,7 +78,7 @@ h3 {
 }
 
 p {
-  margin: 0 0.5rem 0 0.9rem;
+  margin: 0 0.1rem 0 0.3rem;
   font-size: 0.7rem;
 }
 
@@ -132,19 +132,38 @@ input {
   }
 }
 
-.starRating {
+.rating-wrapper {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 
-.Star {
-  background-color: transparent;
-  border: none;
-  width: 0.6rem;
-  height: 0.6rem;
-  cursor: pointer;
-  margin: 0 0.1rem;
-  padding: 0;
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  label {
+    width: auto;
+    cursor: pointer;
+    margin: 0 0.1rem;
+  }
+
+  .star-filled {
+    display: none;
+  }
+
+  input[type="radio"]:checked ~ label {
+    .star-empty {
+      display: none;
+    }
+    .star-filled {
+      display: block;
+    }
+  }
 }
 
 img {

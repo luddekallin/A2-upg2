@@ -12,8 +12,8 @@
   margin-bottom: 1.5rem;
   cursor: pointer;
   background-color: transparent;
-  border: 2px solid #36769d;
-  color: #36769d;
+  border: 2px solid #36769D;
+  color: #36769D;
   font-size: 0.8rem;
   font-weight: 700;
   padding: 0.6rem 1.5rem;
@@ -50,10 +50,10 @@
   border: 0.15rem solid #72808a;
   font-family: "Roboto", sans-serif;
   color: black;
-  height: 13rem;
+  min-height: 13rem;
   max-width: 39rem;
   margin: 1rem 2rem;
-  padding: 0.5rem 0 0.5rem 1rem;
+  padding: 0.5rem 0 1rem 1rem;
   box-sizing: border-box;
   position: relative;
 }
@@ -68,7 +68,7 @@
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  margin-left: 1.4rem;
+  margin-left: 1.5rem;
 }
 .filter-navsearch {
   display: flex;
@@ -113,7 +113,7 @@ h3 {
 }
 
 p {
-  margin: 0 0.5rem 0 0.9rem;
+  margin: 0 0.1rem 0 0.3rem;
   font-size: 0.7rem;
 }
 
@@ -132,7 +132,7 @@ ul li {
   white-space: nowrap;
 }
 
-input[type="checkbox"] {
+input[type=checkbox] {
   appearance: none;
   background-color: transparent;
   border: 0.1rem solid #72808a;
@@ -142,10 +142,10 @@ input[type="checkbox"] {
   margin: 0;
   cursor: pointer;
 }
-input[type="checkbox"]:checked {
+input[type=checkbox]:checked {
   background-color: #72808a;
 }
-input[type="text"] {
+input[type=text] {
   background-color: transparent;
   border: 0.1rem solid #72808a;
   border-radius: 0.2rem;
@@ -157,23 +157,36 @@ input[type="text"] {
   box-sizing: border-box;
   color: black;
 }
-input[type="text"]::placeholder {
+input[type=text]::placeholder {
   color: #72808a;
 }
 
-.starRating {
+.rating-wrapper {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 
-.Star {
-  background-color: transparent;
-  border: none;
-  width: 0.6rem;
-  height: 0.6rem;
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.star-rating input[type=radio] {
+  display: none;
+}
+.star-rating label {
+  width: auto;
   cursor: pointer;
   margin: 0 0.1rem;
-  padding: 0;
+}
+.star-rating .star-filled {
+  display: none;
+}
+.star-rating input[type=radio]:checked ~ label .star-empty {
+  display: none;
+}
+.star-rating input[type=radio]:checked ~ label .star-filled {
+  display: block;
 }
 
 img {
@@ -194,8 +207,7 @@ img {
   margin: 0.05rem 0.03rem;
   cursor: pointer;
 }
-.tags.active,
-.tags[aria-pressed="true"] {
+.tags.active, .tags[aria-pressed=true] {
   background-color: #72808a;
   color: black;
   border-color: #99a7b4;

@@ -275,7 +275,7 @@ h1, h2, h3, h4 {
   margin: 1rem;
 }
 
-.challenge-card {
+.challenges__card {
   list-style-type: none;
   scroll-snap-align: center;
   display: flex;
@@ -286,43 +286,46 @@ h1, h2, h3, h4 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin: 0.5rem;
 }
-.challenge-card__img {
+.challenges__card__img {
   width: 100%;
   height: 50%;
   border-radius: 8px 8px 0px 0px;
 }
-.challenge-card__content {
+.challenges__card__content {
   display: flex;
   flex-direction: column;
   flex: 1;
   min-height: 0;
   overflow: hidden;
 }
-.challenge-card__title {
+.challenges__card__title {
   font-size: 1.12rem;
   margin: 0.3rem 0.7rem 0;
 }
-.challenge-card__meta {
+.challenges__card__meta {
   display: flex;
 }
-.challenge-card__stars {
-  margin: -0.25rem 0.85rem;
+.challenges__card__star {
+  color: #cfb5b5;
 }
-.challenge-card__participants {
+.challenges__card__star--active {
+  color: red;
+}
+.challenges__card__participants {
   font-size: 0.56rem;
   padding-left: 0.4rem;
 }
 @media screen and (min-width: 1220px) {
-  .challenge-card__participants {
+  .challenges__card__participants {
     float: right;
     margin: 0.3rem -0.3rem;
   }
 }
-.challenge-card__text {
+.challenges__card__text {
   font-size: 0.72rem;
   margin: 1rem 0.4rem 0.7rem 0.6rem;
 }
-.challenge-card__btn {
+.challenges__card__btn {
   margin-left: 6.1rem;
   font-size: 0.64rem;
   font-weight: bold;

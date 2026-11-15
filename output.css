@@ -292,7 +292,7 @@ h1, h2, h3, h4 {
     margin-left: -1.5rem;
   }
 }
-.popular-rooms__room {
+.challenges-card {
   list-style-type: none;
   scroll-snap-align: center;
   flex: 0 0 14rem;

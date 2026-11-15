@@ -295,6 +295,52 @@ h1, h2, h3, h4{
     justify-content: center;
     margin: 1rem;
 }
+.challenge-card {
+    list-style-type: none;
+    scroll-snap-align: center;
+
+    flex: 0 0 14rem;
+    height: 17rem;
+
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 0.5rem;
+    
+    &__img{
+        width: 100%;
+        border-radius: 8px 8px 0px 0px;
+    }
+
+    &__title{
+        font-size: 1.12rem;
+        margin: 0.3rem 0.7rem 0;
+    }
+
+    &__stars{
+        margin: -0.25rem 0.85rem;
+    }
+
+    &__participants{
+        font-size: 0.56rem;
+        padding-left: 0.4rem;
+        
+        @media screen and (min-width: 1220px){
+            float: right;
+            margin: 0.3rem -0.3rem;
+        }
+    }
+    &__text{
+        font-size: 0.72rem;
+        margin: 1rem 0.4rem 0.7rem 0.6rem;
+    }
+
+    &__btn{
+        margin-left: 6.1rem;
+        font-size: 0.64rem;
+        font-weight: bold;
+        @include btn-red();                 
+    }
+}
 
 .popular-rooms{
     display: flex;
@@ -311,57 +357,7 @@ h1, h2, h3, h4{
         justify-content: center;
         margin-left: -1.5rem;
     }
-
-    &__room{
-        list-style-type: none;
-        scroll-snap-align: center;
-
-        flex: 0 0 14rem;
-        height: 17rem;
-
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        margin: 0.5rem;
         
-        &__img{
-            width: 100%;
-            border-radius: 8px 8px 0px 0px;
-        }
-
-        &__title{
-            font-size: 1.12rem;
-            margin: 0.3rem 0.7rem 0;
-        }
-
-        &__stars{
-            margin: -0.25rem 0.85rem;
-            &__1{
-                width: 0.5rem;
-            }
-
-            &__participants{
-                font-size: 0.56rem;
-                padding-left: 0.4rem;
-                
-                @media screen and (min-width: 1220px){
-                    float: right;
-                    margin: 0.3rem -0.3rem;
-                }
-            }
-        }
-
-        &__text{
-            font-size: 0.72rem;
-            margin: 1rem 0.4rem 0.7rem 0.6rem;
-        }
-
-        &__btn{
-            margin-left: 6.1rem;
-            font-size: 0.64rem;
-            font-weight: bold;
-            @include btn-red();                 
-        }
-    }
 }
 
 .panels{

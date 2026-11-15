@@ -37,12 +37,33 @@
 .challenges__card {
   border-radius: 8px;
   box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
-  padding: 1rem;
+  overflow: hidden;
 }
 .challenges__card-img {
   width: 100%;
   height: auto;
   display: block;
+}
+.challenges__card-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin: 0.3rem 0.7rem;
+}
+.challenges__card-participants {
+  font-size: 0.56rem;
+  margin: 0 0.7rem;
+  font-weight: 400;
+}
+.challenges__card-description {
+  font-size: 0.72rem;
+  margin: 1rem 0.7rem;
+  line-height: 1.4rem;
+}
+.challenges__card-btn {
+  background-color: #E3170A;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
 }
 
 @keyframes fade-in {

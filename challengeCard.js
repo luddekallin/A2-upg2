@@ -6,7 +6,7 @@ export function createChallengeCard(challenge) {
   card.id = challenge.id;
 
   const stars = createRatingStars(challenge.rating);
-  const participants = `${challenge.minParticipants}-${challenge.maxParticipants} deltagare`;
+  const participants = `${challenge.minParticipants}-${challenge.maxParticipants} participants`;
 
   card.innerHTML = `
     <img

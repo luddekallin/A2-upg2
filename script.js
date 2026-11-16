@@ -1,3 +1,6 @@
+import { getChallenges } from './api.js';
+import { createChallengeCard } from './challengeCard.js';
+
 //variables
 const menuBtn = document.querySelector("#menu-btn");
 const navMenu = document.querySelector("#nav-menu");
@@ -32,4 +35,33 @@ function openMenu(){
             child.classList.add("header__nav__menu__list__children")
         });
     }
+}
+
+const topChallengesContainer = document.querySelector('#top-challenges');
+
+async function renderTopChallenges() {
+  try {
+    const challenges = await getChallenges();
+
+    const topChallenges = [...challenges]
+      .sort((a, b) => b.rating - a.rating)
+      .slice(0, 3);
+
+    topChallengesContainer.innerHTML = '';
+
+    topChallenges.forEach((challenge) => {
+      const card = createChallengeCard(challenge);
+      topChallengesContainer.append(card);
+    });
+  } catch (error) {
+    console.error(error);
+
+    topChallengesContainer.innerHTML = `
+      <li>No matching challenges</li>
+    `;
+  }
+}
+
+if (topChallengesContainer) {
+  renderTopChallenges();
 }

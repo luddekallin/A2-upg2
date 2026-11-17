@@ -390,7 +390,7 @@ h4 {
         margin-top: auto;
         margin-bottom: 0.5rem;
         margin-right: 0.5rem;
-        @include btn-red();                 
+        @include mixins.btn-red();                 
     }
 }
 
@@ -600,4 +600,5 @@ h4 {
       margin: 0;
     }
   }
+}
 }

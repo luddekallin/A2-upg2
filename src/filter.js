@@ -83,3 +83,30 @@ window.addEventListener("challengesLoaded", (event) => {
   allChallenges = event.detail;
   updateFilteredChallenges();
 });
+
+
+//----------------textfilter-------------
+async function search(searchInput){
+
+    try{
+        const response = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
+
+        if(!response.ok){
+            throw new Error("Failed to fetch resource");
+        }
+
+        const data = await response.json();
+        const searchChallenge = data.challenges;
+        
+        const filteredChallenges = searchChallenge.filter(
+            (searchChallenge) => searchChallenge.title.toLowerCase().includes(searchInput.toLowerCase()) || 
+            searchChallenge.description.toLowerCase().includes(searchInput.toLowerCase())
+        );
+
+        console.log(filteredChallenges);
+
+    }
+    catch(error){
+        console.error(error);
+    }
+}

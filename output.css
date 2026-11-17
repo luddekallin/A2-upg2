@@ -1,3 +1,96 @@
+.challenges {
+  padding: 0 1rem;
+}
+.challenges__title {
+  font-size: 1.28rem;
+  text-align: center;
+  margin: 2rem 0 1rem;
+}
+.challenges__filter-btn {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid #36769d;
+  color: #36769d;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
+}
+.challenges__rooms {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+@media screen and (min-width: 870px) {
+  .challenges__rooms {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .challenges__rooms {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.challenges__card {
+  border-radius: 8px;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.challenges__card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.challenges__card-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.7rem;
+}
+.challenges__card-media {
+  position: relative;
+}
+.challenges__card-rating {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+}
+.challenges__rating-star {
+  width: 0.5rem;
+  height: auto;
+}
+.challenges__card-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin: 0.3rem 0.7rem;
+}
+.challenges__card-participants {
+  font-size: 0.56rem;
+  margin: 0 0.7rem;
+  font-weight: 400;
+}
+.challenges__card-description {
+  font-size: 0.72rem;
+  margin: 1rem 0.7rem;
+  line-height: 1.4rem;
+}
+.challenges__card-btn {
+  background-color: #e3170a;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
+  margin: auto 0.7rem 0.7rem 0.7rem;
+  font-size: 0.64rem;
+  font-weight: 700;
+  align-self: flex-end;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -20,7 +113,10 @@ body {
   overflow: hidden;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin: 0;
   padding: 0;
   border: 0;
@@ -100,7 +196,7 @@ h1, h2, h3, h4 {
 }
 .header__nav__element:hover {
   cursor: pointer;
-  color: #8ACFE5;
+  color: #8acfe5;
 }
 @media screen and (min-width: 870px) {
   .header__nav {
@@ -118,6 +214,7 @@ h1, h2, h3, h4 {
   margin: 1rem;
   background-color: #011827;
   box-shadow: 0 0 20rem white;
+  z-index: 100;
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -171,7 +268,7 @@ h1, h2, h3, h4 {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
-  background-color: #8ACFE5;
+  background-color: #8acfe5;
   padding: 0.72rem 1.92rem;
   font-weight: bold;
   color: black;
@@ -192,7 +289,7 @@ h1, h2, h3, h4 {
   margin: 1rem 0 2rem;
   font-size: 0.64rem;
   font-weight: bold;
-  color: #36769D;
+  color: #36769d;
   text-decoration: underline;
 }
 @media screen and (min-width: 870px) {
@@ -202,7 +299,7 @@ h1, h2, h3, h4 {
     margin-right: 0.5rem;
     text-decoration: none;
     font-size: 1rem;
-    background-color: #E3170A;
+    background-color: #e3170a;
     color: white;
     padding: 0.72rem 1.92rem;
     border-radius: 5px;
@@ -388,8 +485,8 @@ h1, h2, h3, h4 {
   }
 }
 .panels__info__btn {
-  color: #8ACFE5;
-  border: 2px solid #8ACFE5;
+  color: #8acfe5;
+  border: 2px solid #8acfe5;
   border-radius: 3px;
   padding: 0.5rem 2rem;
   margin-bottom: 3rem;
@@ -442,7 +539,7 @@ h1, h2, h3, h4 {
 }
 .panels__1__btn {
   font-size: 0.95rem;
-  background-color: #E3170A;
+  background-color: #e3170a;
   color: white;
   padding: 0.6rem 1.8rem;
   border-radius: 4px;
@@ -476,7 +573,7 @@ h1, h2, h3, h4 {
 }
 .panels__2__btn {
   font-size: 0.95rem;
-  background-color: #E3170A;
+  background-color: #e3170a;
   color: white;
   padding: 0.6rem 1.8rem;
   border-radius: 4px;

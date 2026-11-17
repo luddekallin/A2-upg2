@@ -22,4 +22,3 @@ async function search(input){
         console.error(error);
     }
 }
-

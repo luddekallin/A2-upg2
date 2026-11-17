@@ -460,12 +460,7 @@ h4 {
       }
 
       &__btn {
-        font-size: 0.95rem;
-
-        background-color: #e3170a;
-        color: white;
-        padding: 0.6rem 1.8rem;
-        border-radius: 4px;
+        @include btn-red;
       }
     }
   }

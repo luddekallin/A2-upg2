@@ -5,6 +5,8 @@
   color: white;
   padding: 0.6rem 1.5rem;
   border-radius: 3px;
+  text-decoration: none;
+  
 }
 @mixin btn-blue {
   color: #8acfe5;
@@ -13,4 +15,5 @@
   padding: 0.5rem 2rem;
   margin-bottom: 3rem;
   font-weight: bold;
+  text-decoration: none;
 }

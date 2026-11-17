@@ -91,6 +91,193 @@
   align-self: flex-end;
 }
 
+.filter {
+  background-color: transparent;
+  border: 0.15rem solid #72808a;
+  font-family: "Roboto", sans-serif;
+  color: black;
+  height: 13rem;
+  max-width: 39rem;
+  margin: 1rem auto;
+  padding: 0.5rem 0 0.5rem 1rem;
+  box-sizing: border-box;
+  position: relative;
+}
+.filter__close-btn {
+  position: absolute;
+  background-color: transparent;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filter__close-line {
+  position: absolute;
+  width: 100%;
+  height: 0.15rem;
+  background-color: black;
+  border-radius: 0.1rem;
+}
+.filter__close-line:first-child {
+  transform: rotate(45deg);
+}
+.filter__close-line:last-child {
+  transform: rotate(-45deg);
+}
+.filter__title {
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin: 0 0 1rem 0;
+}
+.filter__columns {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 2.2fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.filter__subtitle {
+  font-size: 0.6rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  width: 100%;
+}
+.filter__type-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.filter__type-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+  white-space: nowrap;
+}
+.filter__checkbox {
+  appearance: none;
+  background-color: transparent;
+  border: 0.1rem solid #72808a;
+  border-radius: 0.15rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin: 0;
+  cursor: pointer;
+}
+.filter__checkbox:checked {
+  background-color: #72808a;
+}
+.filter__type-label {
+  width: auto;
+  font-size: 0.5rem;
+  font-weight: 700;
+  margin: 0;
+  cursor: pointer;
+}
+.filter__rating {
+  margin-left: 3.2rem;
+}
+.filter__rating-wrapper {
+  display: flex;
+  align-items: center;
+}
+.filter__rating-separator {
+  margin: 0 0.5rem 0 0.9rem;
+  font-size: 0.7rem;
+}
+.filter__tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  margin-left: 1.4rem;
+}
+.filter__tag-btn {
+  color: #99a7b4;
+  border: 0.1rem solid #72808a;
+  border-radius: 65rem;
+  background-color: transparent;
+  height: 1.1rem;
+  padding: 0 0.4rem;
+  font-size: 0.5rem;
+  font-weight: 700;
+  margin: 0.05rem 0.03rem;
+  cursor: pointer;
+}
+.filter__tag-btn--active, .filter__tag-btn[aria-pressed=true] {
+  background-color: #72808a;
+  color: black;
+  border-color: #99a7b4;
+}
+.filter__search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.7rem 1rem 0 0;
+}
+.filter__search-title {
+  width: 12rem;
+  text-align: left;
+  font-size: 0.6rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+.filter__search-input {
+  background-color: transparent;
+  border: 0.1rem solid #72808a;
+  border-radius: 0.2rem;
+  height: 1.7rem;
+  width: 12rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  color: black;
+}
+.filter__search-input::placeholder {
+  color: #72808a;
+}
+
+.star-rating {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.star-rating input[type=radio] {
+  display: none;
+}
+.star-rating label {
+  cursor: pointer;
+  margin: 0 0.1rem;
+  display: flex;
+  align-items: center;
+}
+.star-rating img {
+  width: 0.6rem;
+  height: 0.6rem;
+}
+.star-rating .star-empty {
+  display: block;
+}
+.star-rating .star-filled {
+  display: none;
+}
+.star-rating label:hover .star-empty,
+.star-rating label:hover ~ label .star-empty,
+.star-rating input[type=radio]:checked ~ label .star-empty {
+  display: none;
+}
+.star-rating label:hover .star-filled,
+.star-rating label:hover ~ label .star-filled,
+.star-rating input[type=radio]:checked ~ label .star-filled {
+  display: block;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -461,29 +648,29 @@ h4 {
   padding: 0.6rem 1.5rem;
   border-radius: 5px;
 }
-.popular-rooms__room {
+.popular-rooms__room .challenges__card {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin: 0.5rem;
 }
-.popular-rooms__room__img {
+.popular-rooms__room .challenges__card__img {
   width: 100%;
   border-radius: 8px 8px 0px 0px;
 }
-.popular-rooms__room__title {
+.popular-rooms__room .challenges__card__title {
   font-size: 1.12rem;
   margin: 0.3rem 0.7rem 0;
 }
-.popular-rooms .panels {
+.popular-rooms__room .panels {
   display: grid;
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms .panels {
+  .popular-rooms__room .panels {
     grid-template-columns: 50% 50%;
     margin-top: 1rem;
   }
 }
-.popular-rooms .panels__info {
+.popular-rooms__room .panels__info {
   background-color: #011827;
   color: white;
   display: flex;
@@ -491,21 +678,21 @@ h4 {
   align-items: center;
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms .panels__info {
+  .popular-rooms__room .panels__info {
     grid-column: 1/3;
   }
 }
-.popular-rooms .panels__info__text {
+.popular-rooms__room .panels__info__text {
   font-size: 1.12rem;
   text-align: center;
   margin: 3rem 0.7rem 1.5rem;
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms .panels__info__text {
+  .popular-rooms__room .panels__info__text {
     margin: 5rem 27% 1.5rem;
   }
 }
-.popular-rooms .panels__info__btn {
+.popular-rooms__room .panels__info__btn {
   color: #8acfe5;
   border: 2px solid #8acfe5;
   border-radius: 3px;
@@ -514,92 +701,92 @@ h4 {
   font-weight: bold;
 }
 @media screen and (min-width: 1280px) {
-  .popular-rooms .panels__info__btn {
+  .popular-rooms__room .panels__info__btn {
     margin-bottom: 6rem;
   }
 }
-.popular-rooms .panels__img1 {
+.popular-rooms__room .panels__img1 {
   width: 100%;
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms .panels__img1 {
+  .popular-rooms__room .panels__img1 {
     grid-column: 1/2;
     grid-row: 2;
   }
 }
-.popular-rooms .panels__img2 {
+.popular-rooms__room .panels__img2 {
   width: 100%;
   margin-top: 2.3rem;
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms .panels__img2 {
+  .popular-rooms__room .panels__img2 {
     grid-column: 2/3;
     margin-top: 0;
   }
 }
-.popular-rooms .panels__1 {
+.popular-rooms__room .panels__1 {
   margin: 1rem 0.7rem;
 }
 @media screen and (min-width: 1280px) {
-  .popular-rooms .panels__1 {
+  .popular-rooms__room .panels__1 {
     margin: 1rem 4.5rem;
   }
 }
-.popular-rooms .panels__1__title {
+.popular-rooms__room .panels__1__title {
   font-weight: 900;
   font-size: 1.3rem;
 }
-.popular-rooms .panels__1__text {
+.popular-rooms__room .panels__1__text {
   font-size: 0.95rem;
   margin-bottom: 2.3rem;
 }
 @media screen and (min-width: 1280px) {
-  .popular-rooms .panels__1__text {
+  .popular-rooms__room .panels__1__text {
     margin-bottom: 1.4rem;
   }
 }
-.popular-rooms .panels__1__btn {
+.popular-rooms__room .panels__1__btn {
   font-size: 0.95rem;
   background-color: #e3170a;
   color: white;
   padding: 0.6rem 1.8rem;
   border-radius: 4px;
 }
-.popular-rooms .panels__2 {
+.popular-rooms__room .panels__2 {
   margin: 1rem 0.7rem;
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms .panels__2 {
+  .popular-rooms__room .panels__2 {
     grid-column: 1/2;
     grid-row: 3;
   }
 }
 @media screen and (min-width: 1280px) {
-  .popular-rooms .panels__2 {
+  .popular-rooms__room .panels__2 {
     margin: 1rem 4.5rem;
   }
 }
-.popular-rooms .panels__2__title {
+.popular-rooms__room .panels__2__title {
   font-weight: 900;
   font-size: 1.3rem;
 }
-.popular-rooms .panels__2__text {
+.popular-rooms__room .panels__2__text {
   font-size: 0.95rem;
   margin-bottom: 2.3rem;
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms .panels__2__text {
+  .popular-rooms__room .panels__2__text {
     margin-bottom: 1.4rem;
   }
 }
-.popular-rooms .panels__2__btn {
+.popular-rooms__room .panels__2__btn {
   font-size: 0.95rem;
   background-color: #e3170a;
   color: white;
   padding: 0.6rem 1.8rem;
   border-radius: 4px;
 }
-.popular-rooms .footer {
+.popular-rooms__room .footer {
   display: grid;
   margin-top: 4rem;
   padding: 2rem 0.7rem;
@@ -608,48 +795,48 @@ h4 {
   font-size: 0.72rem;
 }
 @media screen and (min-width: 870px) {
-  .popular-rooms .footer {
+  .popular-rooms__room .footer {
     grid-template-columns: 60% 20% 20%;
     padding: 5rem 2rem;
   }
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms .footer {
+  .popular-rooms__room .footer {
     margin-top: 7rem;
   }
 }
-.popular-rooms .footer__info {
+.popular-rooms__room .footer__info {
   margin-bottom: 1.5rem;
 }
-.popular-rooms .footer__info__title {
+.popular-rooms__room .footer__info__title {
   font-weight: bold;
   margin-bottom: -0.3rem;
 }
 @media screen and (min-width: 870px) {
-  .popular-rooms .footer__info {
+  .popular-rooms__room .footer__info {
     margin: 0 8rem 1.5rem 4rem;
   }
 }
-.popular-rooms .footer__site-map {
+.popular-rooms__room .footer__site-map {
   margin-bottom: 1.8rem;
 }
-.popular-rooms .footer__site-map__title {
+.popular-rooms__room .footer__site-map__title {
   font-weight: bold;
   margin-bottom: 0.4rem;
 }
-.popular-rooms .footer__site-map__list {
+.popular-rooms__room .footer__site-map__list {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-.popular-rooms .footer__follow {
+.popular-rooms__room .footer__follow {
   margin-bottom: 1rem;
 }
-.popular-rooms .footer__follow__title {
+.popular-rooms__room .footer__follow__title {
   font-weight: bold;
   margin-bottom: 0.4rem;
 }
-.popular-rooms .footer__follow__list {
+.popular-rooms__room .footer__follow__list {
   list-style-type: none;
   padding: 0;
   margin: 0;

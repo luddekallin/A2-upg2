@@ -26,6 +26,85 @@
     <main class="challenges">
       <h1 class="challenges__title">Our challenges</h1>
       <button class="challenges__filter-btn">Filter challenges</button>
+      <div class="filter">
+        <button
+          id="closeButton"
+          class="filter__close-btn"
+          type="button"
+          aria-label="Close filter-challenges"
+        >
+          <span class="filter__close-line"></span>
+          <span class="filter__close-line"></span>
+        </button>
+
+        <nav class="filter__nav">
+          <h1 class="filter__title">Filter challenges</h1>
+
+          <div class="filter__columns">
+            <div class="filter__type">
+              <h2 class="filter__subtitle">By type</h2>
+              <ul class="filter__type-list">
+                <li class="filter__type-item">
+                  <input
+                    type="checkbox"
+                    id="filter-online"
+                    class="filter__checkbox"
+                    checked
+                  />
+                  <label for="filter-online" class="filter__type-label"
+                    >Include online challenges</label
+                  >
+                </li>
+                <li class="filter__type-item">
+                  <input
+                    type="checkbox"
+                    id="filter-onsite"
+                    class="filter__checkbox"
+                    checked
+                  />
+                  <label for="filter-onsite" class="filter__type-label"
+                    >Include on-site challenges</label
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="filter__rating">
+              <h2 class="filter__subtitle">By rating</h2>
+              <div class="filter__rating-wrapper">
+                <div id="min-stars" class="star-rating"></div>
+                <p class="filter__rating-separator">to</p>
+                <div id="max-stars" class="star-rating"></div>
+              </div>
+            </div>
+
+            <div class="filter__tags">
+              <h2 class="filter__subtitle">By tags</h2>
+              <button type="button" class="filter__tag-btn">Web</button>
+              <button type="button" class="filter__tag-btn">Linux</button>
+              <button type="button" class="filter__tag-btn">
+                Cryptography
+              </button>
+              <button type="button" class="filter__tag-btn">Coding</button>
+              <button type="button" class="filter__tag-btn">
+                Some other tag
+              </button>
+              <button type="button" class="filter__tag-btn">A final tag</button>
+            </div>
+          </div>
+
+          <div class="filter__search">
+            <h3 class="filter__search-title">Or type to search for keyword</h3>
+            <input
+              type="text"
+              class="filter__search-input"
+              placeholder="Start typing to filter"
+            />
+          </div>
+        </nav>
+      </div>
+      <script src="script.js"></script>
+
       <section class="challenges__rooms">
         <div class="challenges__card">
           <div class="challenges__card-media">
@@ -196,6 +275,7 @@
       </nav>
     </footer>
 
+    <script src="filter.js"></script>
     <script src="challenges.js"></script>
     <script src="script.js"></script>
   </body>

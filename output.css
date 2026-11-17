@@ -372,6 +372,69 @@ h4 {
   margin: 1rem;
 }
 
+.challenges__card {
+  list-style-type: none;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 14rem;
+  height: 17rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 0.5rem;
+}
+.challenges__card__img {
+  width: 100%;
+  height: 50%;
+  border-radius: 8px 8px 0px 0px;
+}
+.challenges__card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.challenges__card__title {
+  font-size: 1.12rem;
+  margin: 0.3rem 0.7rem 0;
+}
+.challenges__card__meta {
+  display: flex;
+}
+.challenges__card__star {
+  color: #cfb5b5;
+}
+.challenges__card__star--active {
+  color: red;
+}
+.challenges__card__participants {
+  font-size: 0.56rem;
+  padding-left: 0.4rem;
+}
+@media screen and (min-width: 1220px) {
+  .challenges__card__participants {
+    float: right;
+    margin: 0.3rem -0.3rem;
+  }
+}
+.challenges__card__text {
+  font-size: 0.72rem;
+  margin: 1rem 0.4rem 0.7rem 0.6rem;
+}
+.challenges__card__btn {
+  margin-left: 6.1rem;
+  font-size: 0.64rem;
+  font-weight: bold;
+  margin-top: auto;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: #E3170A;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
+}
+
 .popular-rooms {
   display: flex;
   height: 19rem;
@@ -388,52 +451,6 @@ h4 {
     justify-content: center;
     margin-left: -1.5rem;
   }
-}
-.popular-rooms__room {
-  list-style-type: none;
-  scroll-snap-align: center;
-  flex: 0 0 14rem;
-  height: 17rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  margin: 0.5rem;
-}
-.popular-rooms__room__img {
-  width: 100%;
-  border-radius: 8px 8px 0px 0px;
-}
-.popular-rooms__room__title {
-  font-size: 1.12rem;
-  margin: 0.3rem 0.7rem 0;
-}
-.popular-rooms__room__stars {
-  margin: -0.25rem 0.85rem;
-}
-.popular-rooms__room__stars__1 {
-  width: 0.5rem;
-}
-.popular-rooms__room__stars__participants {
-  font-size: 0.56rem;
-  padding-left: 0.4rem;
-}
-@media screen and (min-width: 1220px) {
-  .popular-rooms__room__stars__participants {
-    float: right;
-    margin: 0.3rem -0.3rem;
-  }
-}
-.popular-rooms__room__text {
-  font-size: 0.72rem;
-  margin: 1rem 0.4rem 0.7rem 0.6rem;
-}
-.popular-rooms__room__btn {
-  margin-left: 6.1rem;
-  font-size: 0.64rem;
-  font-weight: bold;
-  background-color: #e3170a;
-  color: white;
-  padding: 0.6rem 1.5rem;
-  border-radius: 5px;
 }
 
 .panels {

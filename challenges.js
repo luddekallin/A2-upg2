@@ -1,0 +1,20 @@
+import { getChallenges } from "./api.js";
+import { createChallengeCard } from "./challengeCard.js";
+const challengesContainer = document.querySelector(".challenges__rooms");
+window.addEventListener("challengesFiltered", function (event) {
+  console.log("Filtrerade challenges:", event.detail);
+  challengesContainer.innerHTML = "";
+  for (let i = 0; i < event.detail.length; i++) {
+    const card = createChallengeCard(event.detail[i], "wireframe");
+    challengesContainer.appendChild(card);
+  }
+});
+
+getChallenges().then((challenges) => {
+  console.log(challenges);
+  window.dispatchEvent(
+    new CustomEvent("challengesLoaded", {
+      detail: challenges,
+    }),
+  );
+});

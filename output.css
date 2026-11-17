@@ -36,67 +36,13 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-.challenges__card {
-  border-radius: 8px;
-  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.challenges__card-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.challenges__card-icon {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.7rem;
-}
-.challenges__card-media {
-  position: relative;
-}
-.challenges__card-rating {
-  position: absolute;
-  bottom: 0.5rem;
-  left: 0.5rem;
-}
-.challenges__rating-star {
-  width: 0.5rem;
-  height: auto;
-}
-.challenges__card-title {
-  font-size: 1.12rem;
-  font-weight: 700;
-  margin: 0.3rem 0.7rem;
-}
-.challenges__card-participants {
-  font-size: 0.56rem;
-  margin: 0 0.7rem;
-  font-weight: 400;
-}
-.challenges__card-description {
-  font-size: 0.72rem;
-  margin: 1rem 0.7rem;
-  line-height: 1.4rem;
-}
-.challenges__card-btn {
-  background-color: #e3170a;
-  color: white;
-  padding: 0.6rem 1.5rem;
-  border-radius: 5px;
-  margin: auto 0.7rem 0.7rem 0.7rem;
-  font-size: 0.64rem;
-  font-weight: 700;
-  align-self: flex-end;
-}
 
 .filter {
   background-color: transparent;
   border: 0.15rem solid #72808a;
   font-family: "Roboto", sans-serif;
   color: black;
-  height: 13rem;
+  min-height: 13rem;
   max-width: 39rem;
   margin: 1rem auto;
   padding: 0.5rem 0 0.5rem 1rem;
@@ -276,6 +222,74 @@
 .star-rating label:hover ~ label .star-filled,
 .star-rating input[type=radio]:checked ~ label .star-filled {
   display: block;
+}
+
+.challenges .challenges__card {
+  border-radius: 8px;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.challenges .challenges__card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.challenges .challenges__card-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.7rem;
+}
+.challenges .challenges__card-media {
+  position: relative;
+}
+.challenges .challenges__card-rating {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+}
+.challenges .challenges__rating-star {
+  width: 0.5rem;
+  height: auto;
+}
+.challenges .challenges__card-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin: 0.3rem 0.7rem;
+}
+.challenges .challenges__card-participants {
+  font-size: 0.56rem;
+  margin: 0 0.7rem;
+  font-weight: 400;
+}
+.challenges .challenges__card-description {
+  font-size: 0.72rem;
+  margin: 1rem 0.7rem;
+  line-height: 1.4rem;
+}
+.challenges .challenges__card-btn {
+  background-color: #e3170a;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
+  margin: auto 0.7rem 0.7rem 0.7rem;
+  font-size: 0.64rem;
+  font-weight: 700;
+  align-self: flex-end;
+}
+.challenges .challenges__card--wireframe .challenges__card__star {
+  color: #cfb5b5;
+  font-size: 0.7rem;
+}
+.challenges .challenges__card--wireframe .challenges__card__star--active {
+  color: #e3170a;
+}
+.challenges .challenges__card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 @keyframes fade-in {
@@ -561,7 +575,7 @@ h4 {
 
 .popular-rooms {
   display: flex;
-  height: 19rem;
+  min-height: 19rem;
   overflow: scroll;
   scroll-snap-type: x mandatory;
 }
@@ -586,91 +600,90 @@ h4 {
   justify-content: center;
   margin: 1rem;
 }
-.popular-rooms__room .challenges__card {
+.popular-rooms__room {
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 0.5rem;
+}
+.popular-rooms__room__img {
+  width: 100%;
+  border-radius: 8px 8px 0px 0px;
+}
+.popular-rooms__room__title {
+  font-size: 1.12rem;
+  margin: 0.3rem 0.7rem 0;
+}
+.popular-rooms .challenges__card {
   list-style-type: none;
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   flex: 0 0 14rem;
-  height: 17rem;
+  min-height: 17rem;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin: 0.5rem;
 }
-.popular-rooms__room .challenges__card__img {
+.popular-rooms .challenges__card__img {
   width: 100%;
   height: 50%;
   border-radius: 8px 8px 0px 0px;
 }
-.popular-rooms__room .challenges__card__content {
+.popular-rooms .challenges__card__content {
   display: flex;
   flex-direction: column;
   flex: 1;
   min-height: 0;
   overflow: hidden;
 }
-.popular-rooms__room .challenges__card__title {
+.popular-rooms .challenges__card__title {
   font-size: 1.12rem;
   margin: 0.3rem 0.7rem 0;
 }
-.popular-rooms__room .challenges__card__meta {
+.popular-rooms .challenges__card__meta {
   display: flex;
 }
-.popular-rooms__room .challenges__card__star {
+.popular-rooms .challenges__card__star {
   color: #cfb5b5;
 }
-.popular-rooms__room .challenges__card__star--active {
+.popular-rooms .challenges__card__star--active {
   color: red;
 }
-.popular-rooms__room .challenges__card__participants {
+.popular-rooms .challenges__card__participants {
   font-size: 0.56rem;
   padding-left: 0.4rem;
 }
 @media screen and (min-width: 1220px) {
-  .popular-rooms__room .challenges__card__participants {
+  .popular-rooms .challenges__card__participants {
     float: right;
     margin: 0.3rem -0.3rem;
   }
 }
-.popular-rooms__room .challenges__card__text {
+.popular-rooms .challenges__card__text {
   font-size: 0.72rem;
   margin: 1rem 0.4rem 0.7rem 0.6rem;
 }
-.popular-rooms__room .challenges__card__btn {
-  margin-left: 6.1rem;
+.popular-rooms .challenges__card__btn {
+  margin: auto 0.5rem 0.5rem;
+  align-self: flex-end;
   font-size: 0.64rem;
   font-weight: bold;
-  margin-top: auto;
-  margin-bottom: 0.5rem;
-  margin-right: 0.5rem;
   background-color: #e3170a;
   color: white;
   padding: 0.6rem 1.5rem;
   border-radius: 5px;
 }
-.popular-rooms__room .challenges__card {
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  margin: 0.5rem;
-}
-.popular-rooms__room .challenges__card__img {
-  width: 100%;
-  border-radius: 8px 8px 0px 0px;
-}
-.popular-rooms__room .challenges__card__title {
-  font-size: 1.12rem;
-  margin: 0.3rem 0.7rem 0;
-}
-.popular-rooms__room .panels {
+
+.panels {
   display: grid;
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms__room .panels {
+  .panels {
     grid-template-columns: 50% 50%;
     margin-top: 1rem;
   }
 }
-.popular-rooms__room .panels__info {
+.panels__info {
   background-color: #011827;
   color: white;
   display: flex;
@@ -678,21 +691,21 @@ h4 {
   align-items: center;
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms__room .panels__info {
+  .panels__info {
     grid-column: 1/3;
   }
 }
-.popular-rooms__room .panels__info__text {
+.panels__info__text {
   font-size: 1.12rem;
   text-align: center;
   margin: 3rem 0.7rem 1.5rem;
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms__room .panels__info__text {
+  .panels__info__text {
     margin: 5rem 27% 1.5rem;
   }
 }
-.popular-rooms__room .panels__info__btn {
+.panels__info__btn {
   color: #8acfe5;
   border: 2px solid #8acfe5;
   border-radius: 3px;
@@ -701,92 +714,93 @@ h4 {
   font-weight: bold;
 }
 @media screen and (min-width: 1280px) {
-  .popular-rooms__room .panels__info__btn {
+  .panels__info__btn {
     margin-bottom: 6rem;
   }
 }
-.popular-rooms__room .panels__img1 {
+.panels__img1 {
   width: 100%;
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms__room .panels__img1 {
+  .panels__img1 {
     grid-column: 1/2;
     grid-row: 2;
   }
 }
-.popular-rooms__room .panels__img2 {
+.panels__img2 {
   width: 100%;
   margin-top: 2.3rem;
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms__room .panels__img2 {
+  .panels__img2 {
     grid-column: 2/3;
     margin-top: 0;
   }
 }
-.popular-rooms__room .panels__1 {
+.panels__1 {
   margin: 1rem 0.7rem;
 }
 @media screen and (min-width: 1280px) {
-  .popular-rooms__room .panels__1 {
+  .panels__1 {
     margin: 1rem 4.5rem;
   }
 }
-.popular-rooms__room .panels__1__title {
+.panels__1__title {
   font-weight: 900;
   font-size: 1.3rem;
 }
-.popular-rooms__room .panels__1__text {
+.panels__1__text {
   font-size: 0.95rem;
   margin-bottom: 2.3rem;
 }
 @media screen and (min-width: 1280px) {
-  .popular-rooms__room .panels__1__text {
+  .panels__1__text {
     margin-bottom: 1.4rem;
   }
 }
-.popular-rooms__room .panels__1__btn {
+.panels__1__btn {
   font-size: 0.95rem;
   background-color: #e3170a;
   color: white;
   padding: 0.6rem 1.8rem;
   border-radius: 4px;
 }
-.popular-rooms__room .panels__2 {
+.panels__2 {
   margin: 1rem 0.7rem;
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms__room .panels__2 {
+  .panels__2 {
     grid-column: 1/2;
     grid-row: 3;
   }
 }
 @media screen and (min-width: 1280px) {
-  .popular-rooms__room .panels__2 {
+  .panels__2 {
     margin: 1rem 4.5rem;
   }
 }
-.popular-rooms__room .panels__2__title {
+.panels__2__title {
   font-weight: 900;
   font-size: 1.3rem;
 }
-.popular-rooms__room .panels__2__text {
+.panels__2__text {
   font-size: 0.95rem;
   margin-bottom: 2.3rem;
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms__room .panels__2__text {
+  .panels__2__text {
     margin-bottom: 1.4rem;
   }
 }
-.popular-rooms__room .panels__2__btn {
+.panels__2__btn {
   font-size: 0.95rem;
   background-color: #e3170a;
   color: white;
   padding: 0.6rem 1.8rem;
   border-radius: 4px;
 }
-.popular-rooms__room .footer {
+
+.footer {
   display: grid;
   margin-top: 4rem;
   padding: 2rem 0.7rem;
@@ -795,48 +809,48 @@ h4 {
   font-size: 0.72rem;
 }
 @media screen and (min-width: 870px) {
-  .popular-rooms__room .footer {
+  .footer {
     grid-template-columns: 60% 20% 20%;
     padding: 5rem 2rem;
   }
 }
 @media screen and (min-width: 1080px) {
-  .popular-rooms__room .footer {
+  .footer {
     margin-top: 7rem;
   }
 }
-.popular-rooms__room .footer__info {
+.footer__info {
   margin-bottom: 1.5rem;
 }
-.popular-rooms__room .footer__info__title {
+.footer__info__title {
   font-weight: bold;
   margin-bottom: -0.3rem;
 }
 @media screen and (min-width: 870px) {
-  .popular-rooms__room .footer__info {
+  .footer__info {
     margin: 0 8rem 1.5rem 4rem;
   }
 }
-.popular-rooms__room .footer__site-map {
+.footer__site-map {
   margin-bottom: 1.8rem;
 }
-.popular-rooms__room .footer__site-map__title {
+.footer__site-map__title {
   font-weight: bold;
   margin-bottom: 0.4rem;
 }
-.popular-rooms__room .footer__site-map__list {
+.footer__site-map__list {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-.popular-rooms__room .footer__follow {
+.footer__follow {
   margin-bottom: 1rem;
 }
-.popular-rooms__room .footer__follow__title {
+.footer__follow__title {
   font-weight: bold;
   margin-bottom: 0.4rem;
 }
-.popular-rooms__room .footer__follow__list {
+.footer__follow__list {
   list-style-type: none;
   padding: 0;
   margin: 0;

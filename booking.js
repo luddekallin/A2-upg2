@@ -1,18 +1,37 @@
-const bookingForm = document.querySelector('.booking-form');
-const thankYou = document.querySelector('.thank-you');
+//javaSvript och api (ida)
 
+console.log("JavaScript-filen laddas som den ska!");
 
-bookingForm.addEventListener('submit', function (e){
-e.preventDefault();
+import { bookingReservation } from "./api.js";
+const bookingForm = document.querySelector(".booking-form");
+const thankYou = document.querySelector(".thank-you");
 
-const name = document.querySelector('#name').value;
-const email = document.querySelector('#email').value;
-const time = document.querySelector('.booking-form__times').value;
-const participants = document.querySelector('.booking-form__participants').value;
+bookingForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-console.log("Bokning inskickad",{namn, email, time, participants});
+  const name = document.querySelector("#name").value;
+  const email = document.querySelector("#email").value;
+  const time = document.querySelector(".booking-form__times").value;
+  const participants = document.querySelector(
+    ".booking-form__participants",
+  ).value;
 
-bookingForm.classList.add('hidden');
-thankYou.classList.remove('hidden');
+  const bookingData = {
+    challenge: Number(1),
+    name: name,
+    email: email,
+    date: "2026-11-20",
+    time: time,
+    participants: Number (participants),
+  };
 
+  try {
+    const resultat = await bookingReservation(bookingData);
+    console.log("Bokning inskickad", { resultat });
+
+    bookingForm.classList.add("hidden");
+    thankYou.classList.remove("hidden");
+  } catch (error) {
+    console.error("Kunde inte genomföra bokningen", { error });
+  }
 });

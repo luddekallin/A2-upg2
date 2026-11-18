@@ -120,3 +120,4 @@ async function search(searchInput){
         console.error(error);
     }
 }
+

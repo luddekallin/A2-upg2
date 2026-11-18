@@ -63,7 +63,7 @@
                 </figure>
             
                 <p class="popular-rooms__room__text">Praeterea, ex culpa non invenies unum aut non accusatis unum. Et nihil inuitam. Nemo nocere tibi erit, et non inimicos, et</p>
-                <a class="popular-rooms__room__btn">Book this room</a>
+                <button class="popular-rooms__room__btn" id="">Book this room</button>
             </li>
 
             <li class="popular-rooms__room">
@@ -78,7 +78,7 @@
                     <small class="popular-rooms__room__stars__participants">2-6 participants</small>
                 </figure>
                 <p class="popular-rooms__room__text">Praeterea, ex culpa non invenies unum aut non accusatis unum. Et nihil inuitam. Nemo nocere tibi erit, et non inimicos, et</p>
-                <a class="popular-rooms__room__btn">Book this room</a>
+                <button class="popular-rooms__room__btn">Book this room</button>
             </li>
 
             <li class="popular-rooms__room">
@@ -94,9 +94,30 @@
                 </figure>
             
                 <p class="popular-rooms__room__text">Praeterea, ex culpa non invenies unum aut non accusatis unum. Et nihil inuitam. Nemo nocere tibi erit, et non inimicos, et</p>
-                <a class="popular-rooms__room__btn">Book this room</a>
+                <button class="popular-rooms__room__btn">Book this room</button>
             </li>
         </ul>
+        <div class="room-booking-modal">
+
+            <div class="room-booking-modal__content">
+
+                 <button class="room-booking-modal__close">
+                x
+                </button>
+
+                <h2>Book Room</h2>
+
+                <p>
+                What date would you like to come?
+               </p>
+                <label for="date">Date</label>
+                <input type="date" class="room-booking-modal__date" id="date"> 
+                
+
+            </div>
+
+        </div>
+
     </section>
 
     <nav class="btns">
@@ -156,5 +177,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="booking.js"></script>
 </body>
 </html>

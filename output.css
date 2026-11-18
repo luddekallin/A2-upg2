@@ -45,6 +45,45 @@
   display: block;
 }
 
+.room-booking-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #011827;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.room-booking-modal--active {
+  display: flex;
+}
+
+.room-booking-modal__content {
+  position: relative;
+  background-color: #011827;
+  color: white;
+  width: 800px;
+  max-width: 90%;
+  min-height: 500px;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.room-booking-modal__close {
+  position: absolute;
+  color: white;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

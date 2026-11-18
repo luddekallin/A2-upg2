@@ -1,6 +1,7 @@
 const activeFilters = {
   minRating: 1,
   maxRating: 5,
+  tag: []
 };
 
 // Här sparas alla original-challenges när de hämtats från API:et
@@ -121,3 +122,28 @@ async function search(searchInput){
     }
 }
 
+
+//--------tag filter----------
+
+//hämtar taggar från html
+const tagBtns = document.querySelectorAll("div.filter__tags > button");
+
+//skapar eventlistener för varje tag knapp
+for(let i=0; i < tagBtns.length; i++){
+  tagBtns[i].addEventListener("click", () => {
+    if(tagBtns[i].classList.contains("filter__tag-btn--active")){
+      tagBtns[i].classList.remove("filter__tag-btn--active");
+      removeItem(tagBtns[i].innerHTML);
+    }
+    else{
+      tagBtns[i].classList.add("filter__tag-btn--active");
+      activeFilters.tag.push(tagBtns[i].innerHTML);
+    }
+  })
+}
+
+//function för att hitta och ta bort tag från activeFilters
+function removeItem(itemToRemove){
+  const index = activeFilters.tag.indexOf(itemToRemove);
+  activeFilters.tag.splice(index,1);
+}

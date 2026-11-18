@@ -210,7 +210,7 @@
   margin: 0.05rem 0.03rem;
   cursor: pointer;
 }
-.filter__tag-btn--active, .filter__tag-btn[aria-pressed=true] {
+.filter__tag-btn:hover, .filter__tag-btn--active, .filter__tag-btn[aria-pressed=true] {
   background-color: #72808a;
   color: black;
   border-color: #99a7b4;

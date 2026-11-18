@@ -86,6 +86,16 @@ window.addEventListener("challengesLoaded", (event) => {
 
 
 //----------------textfilter-------------
+
+const searchInput = document.querySelector(".filter__search-input");
+
+searchInput.addEventListener("input", async (event) => {
+  const searchText = event.target.value;
+  const filteredChallenges = await search(searchText);
+
+  console.log(filteredChallenges);
+});
+
 async function search(searchInput){
 
     try{
@@ -103,7 +113,7 @@ async function search(searchInput){
             searchChallenge.description.toLowerCase().includes(searchInput.toLowerCase())
         );
 
-        console.log(filteredChallenges);
+        return filteredChallenges;
 
     }
     catch(error){

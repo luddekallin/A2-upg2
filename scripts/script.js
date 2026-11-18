@@ -1,5 +1,5 @@
-import { getChallenges } from './api.js';
-import { createChallengeCard } from './challengeCard.js';
+import { getChallenges } from '../scripts/api.js';
+import { createChallengeCard } from '../src/challengeCard/challengeCard.js';
 
 //variables
 const menuBtn = document.querySelector("#menu-btn");

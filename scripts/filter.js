@@ -1,6 +1,7 @@
 const activeFilters = {
   minRating: 1,
   maxRating: 5,
+  tag: []
 };
 
 // Här sparas alla original-challenges när de hämtats från API:et

@@ -120,3 +120,14 @@ async function search(searchInput){
         console.error(error);
     }
 }
+// TODO: once the filter block is implemented, filtering by type (via 1st page buttons) should be updated
+// const urlParams = new URLSearchParams(window.location.search);
+// const challengeType = urlParams.get("challengeType");
+
+// if (challengeType === "online") {
+//   document.querySelector("#filter-onsite").checked = false;
+// }
+
+// if (challengeType === "onsite") {
+//   document.querySelector("#filter-online").checked = false;
+// }

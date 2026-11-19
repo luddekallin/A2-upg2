@@ -1,7 +1,12 @@
+const urlParams = new URLSearchParams(window.location.search);
+const initialType = urlParams.get("type");
+
 const activeFilters = {
-  minRating: 1,
+  minRating: 0,
   maxRating: 5,
-  tag: []
+  tag: [],
+  includeOnline: initialType === "onsite" ? false : true,
+  includeOnsite: initialType === "online" ? false : true,
 };
 
 // Här sparas alla original-challenges när de hämtats från API:et
@@ -57,14 +62,42 @@ maxContainer.addEventListener("change", (event) => {
   updateFilteredChallenges();
 });
 
-// 3. Filtreringsfunktion (kontrollerar stjärnbetyg)
+// Logik för "By type" (Kryssrutor)
+const onlineCheckbox = document.getElementById("filter-online");
+const onsiteCheckbox = document.getElementById("filter-onsite");
+
+if (onlineCheckbox && onsiteCheckbox) {
+  onlineCheckbox.checked = activeFilters.includeOnline;
+  onsiteCheckbox.checked = activeFilters.includeOnsite;
+
+  onlineCheckbox.addEventListener("change", (event) => {
+    activeFilters.includeOnline = event.target.checked;
+    updateFilteredChallenges();
+  });
+
+  onsiteCheckbox.addEventListener("change", (event) => {
+    activeFilters.includeOnsite = event.target.checked;
+    updateFilteredChallenges();
+  });
+}
+
+// 3. Filtreringsfunktion (kontrollerar stjärnbetyg och by type)
 function filterChallenges(challenges) {
   return challenges.filter((challenge) => {
     const matchesRating =
       challenge.rating >= activeFilters.minRating &&
       challenge.rating <= activeFilters.maxRating;
 
-    return matchesRating;
+    const matchesType =
+      (challenge.type === "online" && activeFilters.includeOnline) ||
+      (challenge.type === "onsite" && activeFilters.includeOnsite);
+
+    const matchesTag =
+      challenge.labels === activeFilters.tag
+      
+    const matchesSearch = search(searchText)
+
+    return matchesRating && matchesType && matchesTag;
   });
 }
 
@@ -85,43 +118,40 @@ window.addEventListener("challengesLoaded", (event) => {
   updateFilteredChallenges();
 });
 
-
 //----------------textfilter-------------
 
 const searchInput = document.querySelector(".filter__search-input");
-
-searchInput.addEventListener("input", async (event) => {
-  const searchText = event.target.value;
+const searchText = searchInput.value;
+searchInput.addEventListener("input", async () => {
   const filteredChallenges = await search(searchText);
 
   console.log(filteredChallenges);
 });
 
-async function search(searchInput){
+async function search(searchInput) {
+  try {
+    const response = await fetch(
+      "https://lernia-sjj-assignments.vercel.app/api/challenges",
+    );
 
-    try{
-        const response = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
-
-        if(!response.ok){
-            throw new Error("Failed to fetch resource");
-        }
-
-        const data = await response.json();
-        const searchChallenge = data.challenges;
-        
-        const filteredChallenges = searchChallenge.filter(
-            (searchChallenge) => searchChallenge.title.toLowerCase().includes(searchInput.toLowerCase()) || 
-            searchChallenge.description.toLowerCase().includes(searchInput.toLowerCase())
-        );
-
-        return filteredChallenges;
-
+    if (!response.ok) {
+      throw new Error("Failed to fetch resource");
     }
-    catch(error){
-        console.error(error);
-    }
+
+    const data = await response.json();
+    const searchChallenge = data.challenges;
+
+    const filteredChallenges = searchChallenge.filter(
+      (searchChallenge) =>
+        searchChallenge.title.toLowerCase().includes(searchInput.toLowerCase()) ||
+        searchChallenge.description.toLowerCase().includes(searchInput.toLowerCase()),
+    );
+
+    return filteredChallenges;
+  } catch (error) {
+    console.error(error);
+  }
 }
-
 
 //--------tag filter----------
 
@@ -129,21 +159,20 @@ async function search(searchInput){
 const tagBtns = document.querySelectorAll("div.filter__tags > button");
 
 //skapar eventlistener för varje tag knapp
-for(let i=0; i < tagBtns.length; i++){
+for (let i = 0; i < tagBtns.length; i++) {
   tagBtns[i].addEventListener("click", () => {
-    if(tagBtns[i].classList.contains("filter__tag-btn--active")){
+    if (tagBtns[i].classList.contains("filter__tag-btn--active")) {
       tagBtns[i].classList.remove("filter__tag-btn--active");
       removeItem(tagBtns[i].innerHTML);
-    }
-    else{
+    } else {
       tagBtns[i].classList.add("filter__tag-btn--active");
       activeFilters.tag.push(tagBtns[i].innerHTML);
     }
-  })
+  });
 }
 
 //function för att hitta och ta bort tag från activeFilters
-function removeItem(itemToRemove){
+function removeItem(itemToRemove) {
   const index = activeFilters.tag.indexOf(itemToRemove);
-  activeFilters.tag.splice(index,1);
+  activeFilters.tag.splice(index, 1);
 }

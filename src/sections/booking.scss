@@ -36,3 +36,26 @@
     font-size: 2rem;
     cursor: pointer;
 }
+
+.confirm-date {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.confirm-booking-btn {
+    align-self: flex-end;
+    background-color:purple;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin: 50px;
+    border: none;
+}
+
+.time-select {
+    display: block;
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+}

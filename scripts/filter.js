@@ -1,7 +1,12 @@
+const urlParams = new URLSearchParams(window.location.search);
+const initialType = urlParams.get("type");
+
 const activeFilters = {
-  minRating: 1,
+  minRating: 0,
   maxRating: 5,
-  tag: []
+  tag: [],
+  includeOnline: initialType === "onsite" ? false : true,
+  includeOnsite: initialType === "online" ? false : true,
 };
 
 // Här sparas alla original-challenges när de hämtats från API:et
@@ -58,14 +63,42 @@ maxContainer.addEventListener("change", (event) => {
   updateFilteredChallenges();
 });
 
-// 3. Filtreringsfunktion (kontrollerar stjärnbetyg)
+// Logik för "By type" (Kryssrutor)
+const onlineCheckbox = document.getElementById("filter-online");
+const onsiteCheckbox = document.getElementById("filter-onsite");
+
+if (onlineCheckbox && onsiteCheckbox) {
+  onlineCheckbox.checked = activeFilters.includeOnline;
+  onsiteCheckbox.checked = activeFilters.includeOnsite;
+
+  onlineCheckbox.addEventListener("change", (event) => {
+    activeFilters.includeOnline = event.target.checked;
+    updateFilteredChallenges();
+  });
+
+  onsiteCheckbox.addEventListener("change", (event) => {
+    activeFilters.includeOnsite = event.target.checked;
+    updateFilteredChallenges();
+  });
+}
+
+// 3. Filtreringsfunktion (kontrollerar stjärnbetyg och by type)
 function filterChallenges(challenges) {
   return challenges.filter((challenge) => {
     const matchesRating =
       challenge.rating >= activeFilters.minRating &&
       challenge.rating <= activeFilters.maxRating;
 
-    return matchesRating;
+    const matchesType =
+      (challenge.type === "online" && activeFilters.includeOnline) ||
+      (challenge.type === "onsite" && activeFilters.includeOnsite);
+
+    const matchesTag =
+      challenge.labels === activeFilters.tag
+      
+    const matchesSearch = search(searchText)
+
+    return matchesRating && matchesType && matchesTag;
   });
 }
 
@@ -78,9 +111,8 @@ window.addEventListener("challengesLoaded", (event) => {
 //----------------textfilter-------------
 
 const searchInput = document.querySelector(".filter__search-input");
-
-searchInput.addEventListener("input", async (event) => {
-  const searchText = event.target.value;
+const searchText = searchInput.value;
+searchInput.addEventListener("input", async () => {
   const filteredChallenges = await search(searchText);
 
   console.log(filteredChallenges);
@@ -101,12 +133,8 @@ async function search(searchInput) {
 
     const filteredChallenges = searchChallenge.filter(
       (searchChallenge) =>
-        searchChallenge.title
-          .toLowerCase()
-          .includes(searchInput.toLowerCase()) ||
-        searchChallenge.description
-          .toLowerCase()
-          .includes(searchInput.toLowerCase()),
+        searchChallenge.title.toLowerCase().includes(searchInput.toLowerCase()) ||
+        searchChallenge.description.toLowerCase().includes(searchInput.toLowerCase()),
     );
 
     return filteredChallenges;
@@ -133,6 +161,22 @@ function updateFilteredChallenges() {
       detail: filteredList,
     }),
   );
+//--------tag filter----------
+
+//hämtar taggar från html
+const tagBtns = document.querySelectorAll("div.filter__tags > button");
+
+//skapar eventlistener för varje tag knapp
+for (let i = 0; i < tagBtns.length; i++) {
+  tagBtns[i].addEventListener("click", () => {
+    if (tagBtns[i].classList.contains("filter__tag-btn--active")) {
+      tagBtns[i].classList.remove("filter__tag-btn--active");
+      removeItem(tagBtns[i].innerHTML);
+    } else {
+      tagBtns[i].classList.add("filter__tag-btn--active");
+      activeFilters.tag.push(tagBtns[i].innerHTML);
+    }
+  });
 }
     
 // TODO: once the filter block is implemented, filtering by type (via 1st page buttons) should be updated
@@ -146,3 +190,8 @@ function updateFilteredChallenges() {
 // if (challengeType === "onsite") {
 //   document.querySelector("#filter-online").checked = false;
 // }
+//function för att hitta och ta bort tag från activeFilters
+function removeItem(itemToRemove) {
+  const index = activeFilters.tag.indexOf(itemToRemove);
+  activeFilters.tag.splice(index, 1);
+}

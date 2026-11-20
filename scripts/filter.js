@@ -5,6 +5,7 @@ const activeFilters = {
   minRating: 0,
   maxRating: 5,
   tag: [],
+  searchText: "",
   includeOnline: initialType === "onsite" ? false : true,
   includeOnsite: initialType === "online" ? false : true,
 };
@@ -94,15 +95,29 @@ function filterChallenges(challenges) {
       (challenge.type === "onsite" && activeFilters.includeOnsite);
 
     const matchesTag =
-      challenge.labels === activeFilters.tag
-
-      const matchesSearch = search(searchInput.value)
+      activeFilters.tag.length === 0 ||
+      activeFilters.tag.some((tag) => challenge.labels.includes(tag));
+    const searchText = activeFilters.searchText.toLowerCase();
+    const matchesSearch =
+      challenge.title.toLowerCase().includes(searchText) ||
+      challenge.description.toLowerCase().includes(searchText);
 
     return matchesRating && matchesType && matchesTag && matchesSearch;
   });
 }
 
-// 4. Ta emot all data när challenges.js har hämtat den från API:et
+// 4. Kör filtreringen och skicka ut resultatet till challenges.js
+function updateFilteredChallenges() {
+  const filteredList = filterChallenges(allChallenges);
+
+  window.dispatchEvent(
+    new CustomEvent("challengesFiltered", {
+      detail: filteredList,
+    }),
+  );
+}
+
+// 5. Ta emot all data när challenges.js har hämtat den från API:et
 window.addEventListener("challengesLoaded", (event) => {
   allChallenges = event.detail;
   updateFilteredChallenges();
@@ -111,33 +126,10 @@ window.addEventListener("challengesLoaded", (event) => {
 //----------------textfilter-------------
 
 const searchInput = document.querySelector(".filter__search-input");
-searchInput.addEventListener("input",search(searchInput.value));
-
-async function search(searchInput) {
-  try {
-    const response = await fetch(
-      "https://lernia-sjj-assignments.vercel.app/api/challenges",
-    );
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch resource");
-    }
-
-    const data = await response.json();
-    const searchChallenge = data.challenges;
-
-    const filteredChallenges = searchChallenge.filter(
-      (searchChallenge) =>
-        searchChallenge.title.toLowerCase().includes(searchInput.toLowerCase()) ||
-        searchChallenge.description.toLowerCase().includes(searchInput.toLowerCase()),
-    );
-
-    console.log(filteredChallenges);
-    return filteredChallenges;
-  } catch (error) {
-    console.error(error);
-  }
-}
+searchInput.addEventListener("input", (event) => {
+  activeFilters.searchText = event.target.value.trim();
+  updateFilteredChallenges();
+});
 
 //--------tag filter----------
 
@@ -150,11 +142,12 @@ for (let i = 0; i < tagBtns.length; i++) {
     if (tagBtns[i].classList.contains("filter__tag-btn--active")) {
       tagBtns[i].classList.remove("filter__tag-btn--active");
       removeItem(tagBtns[i].innerHTML.toLowerCase());
+      updateFilteredChallenges();
     } else {
       tagBtns[i].classList.add("filter__tag-btn--active");
       activeFilters.tag.push(tagBtns[i].innerHTML.toLowerCase());
+      updateFilteredChallenges();
     }
-    console.log(activeFilters)
   });
 }
 

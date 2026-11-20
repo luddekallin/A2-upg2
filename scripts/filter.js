@@ -96,9 +96,9 @@ function filterChallenges(challenges) {
     const matchesTag =
       challenge.labels === activeFilters.tag
 
-      const matchesSearch = search(searchText)
+      const matchesSearch = search(searchInput.value)
 
-    return matchesRating && matchesType && matchesTag;
+    return matchesRating && matchesType && matchesTag && matchesSearch;
   });
 }
 
@@ -111,11 +111,7 @@ window.addEventListener("challengesLoaded", (event) => {
 //----------------textfilter-------------
 
 const searchInput = document.querySelector(".filter__search-input");
-searchInput.addEventListener("input", async () => {
-  const filteredChallenges = await search(searchInput.value);
-
-  console.log(filteredChallenges);
-});
+searchInput.addEventListener("input",search(searchInput.value));
 
 async function search(searchInput) {
   try {
@@ -136,30 +132,13 @@ async function search(searchInput) {
         searchChallenge.description.toLowerCase().includes(searchInput.toLowerCase()),
     );
 
+    console.log(filteredChallenges);
     return filteredChallenges;
   } catch (error) {
     console.error(error);
   }
 }
 
-// 5. Meddelande vid inga matchande challenges
-const noMatchesMessage = document.getElementById("no-matches-message");
-
-function updateFilteredChallenges() {
-  const filteredList = filterChallenges(allChallenges);
-
-  if (noMatchesMessage) {
-    if (filteredList.length === 0) {
-      noMatchesMessage.classList.remove("hidden");
-    } else {
-      noMatchesMessage.classList.add("hidden");
-    }
-  }
-  window.dispatchEvent(
-    new CustomEvent("challengesFiltered", {
-      detail: filteredList,
-    }),
-  );
 //--------tag filter----------
 
 //hämtar taggar från html
@@ -170,25 +149,15 @@ for (let i = 0; i < tagBtns.length; i++) {
   tagBtns[i].addEventListener("click", () => {
     if (tagBtns[i].classList.contains("filter__tag-btn--active")) {
       tagBtns[i].classList.remove("filter__tag-btn--active");
-      removeItem(tagBtns[i].innerHTML);
+      removeItem(tagBtns[i].innerHTML.toLowerCase());
     } else {
       tagBtns[i].classList.add("filter__tag-btn--active");
-      activeFilters.tag.push(tagBtns[i].innerHTML);
+      activeFilters.tag.push(tagBtns[i].innerHTML.toLowerCase());
     }
+    console.log(activeFilters)
   });
 }
-    
-// TODO: once the filter block is implemented, filtering by type (via 1st page buttons) should be updated
-// const urlParams = new URLSearchParams(window.location.search);
-// const challengeType = urlParams.get("challengeType");
 
-// if (challengeType === "online") {
-//   document.querySelector("#filter-onsite").checked = false;
-// }
-
-// if (challengeType === "onsite") {
-//   document.querySelector("#filter-online").checked = false;
-// }
 //function för att hitta och ta bort tag från activeFilters
 function removeItem(itemToRemove) {
   const index = activeFilters.tag.indexOf(itemToRemove);

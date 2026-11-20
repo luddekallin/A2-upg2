@@ -95,9 +95,9 @@ function filterChallenges(challenges) {
     const matchesTag =
       challenge.labels === activeFilters.tag
 
-      const matchesSearch = search(searchText)
+      const matchesSearch = search(searchInput.value)
 
-    return matchesRating && matchesType && matchesTag;
+    return matchesRating && matchesType && matchesTag && matchesSearch;
   });
 }
 
@@ -121,11 +121,7 @@ window.addEventListener("challengesLoaded", (event) => {
 //----------------textfilter-------------
 
 const searchInput = document.querySelector(".filter__search-input");
-searchInput.addEventListener("input", async () => {
-  const filteredChallenges = await search(searchInput.value);
-
-  console.log(filteredChallenges);
-});
+searchInput.addEventListener("input",search(searchInput.value));
 
 async function search(searchInput) {
   try {
@@ -146,6 +142,7 @@ async function search(searchInput) {
         searchChallenge.description.toLowerCase().includes(searchInput.toLowerCase()),
     );
 
+    console.log(filteredChallenges);
     return filteredChallenges;
   } catch (error) {
     console.error(error);
@@ -162,11 +159,12 @@ for (let i = 0; i < tagBtns.length; i++) {
   tagBtns[i].addEventListener("click", () => {
     if (tagBtns[i].classList.contains("filter__tag-btn--active")) {
       tagBtns[i].classList.remove("filter__tag-btn--active");
-      removeItem(tagBtns[i].innerHTML);
+      removeItem(tagBtns[i].innerHTML.toLowerCase());
     } else {
       tagBtns[i].classList.add("filter__tag-btn--active");
-      activeFilters.tag.push(tagBtns[i].innerHTML);
+      activeFilters.tag.push(tagBtns[i].innerHTML.toLowerCase());
     }
+    console.log(activeFilters)
   });
 }
 

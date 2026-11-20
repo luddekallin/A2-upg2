@@ -1,4 +1,4 @@
-import { getChallenges } from '../scripts/api.js';
+import { getChallenges } from './api.js';
 import { createChallengeCard } from '../src/challengeCard/challengeCard.js';
 
 //variables

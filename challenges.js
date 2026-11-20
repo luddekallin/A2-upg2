@@ -1,5 +1,6 @@
-import { getChallenges } from "./api.js";
-import { createChallengeCard } from "./challengeCard.js";
+import { getChallenges } from "./scripts/api.js";
+import { createChallengeCard } from "./src/challengeCard/challengeCard.js";
+
 const challengesContainer = document.querySelector(".challenges__rooms");
 window.addEventListener("challengesFiltered", function (event) {
   console.log("Filtrerade challenges:", event.detail);

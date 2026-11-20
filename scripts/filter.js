@@ -94,8 +94,8 @@ function filterChallenges(challenges) {
 
     const matchesTag =
       challenge.labels === activeFilters.tag
-      
-    const matchesSearch = search(searchText)
+
+      const matchesSearch = search(searchText)
 
     return matchesRating && matchesType && matchesTag;
   });
@@ -121,9 +121,9 @@ window.addEventListener("challengesLoaded", (event) => {
 //----------------textfilter-------------
 
 const searchInput = document.querySelector(".filter__search-input");
-const searchText = searchInput.value;
+
 searchInput.addEventListener("input", async () => {
-  const filteredChallenges = await search(searchText);
+  const filteredChallenges = await search(searchInput.value);
 
   console.log(filteredChallenges);
 });

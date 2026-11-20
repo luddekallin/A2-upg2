@@ -121,7 +121,6 @@ window.addEventListener("challengesLoaded", (event) => {
 //----------------textfilter-------------
 
 const searchInput = document.querySelector(".filter__search-input");
-
 searchInput.addEventListener("input", async () => {
   const filteredChallenges = await search(searchInput.value);
 

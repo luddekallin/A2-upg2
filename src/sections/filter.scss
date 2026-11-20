@@ -214,3 +214,15 @@
     display: block;
   }
 }
+
+.filter__no-matches {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 3rem auto;
+  font-family: "Roboto", sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}

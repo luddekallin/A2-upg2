@@ -33,6 +33,7 @@ for (let i = 5; i >= 1; i--) {
 
   const maxLabel = document.createElement("label");
   maxLabel.htmlFor = "max-" + i;
+
   maxLabel.innerHTML = `<img src="images/Star 5.png" class="star-empty" alt="${i} stjärnor"> <img src="images/Star 2.png" class="star-filled" alt="${i} stjärnor">`;
   maxContainer.appendChild(maxRadio);
   maxContainer.appendChild(maxLabel);
@@ -67,23 +68,11 @@ function filterChallenges(challenges) {
   });
 }
 
-// 4. Kör filtreringen och skicka ut resultatet till challenges.js
-function updateFilteredChallenges() {
-  const filteredList = filterChallenges(allChallenges);
-
-  window.dispatchEvent(
-    new CustomEvent("challengesFiltered", {
-      detail: filteredList,
-    }),
-  );
-}
-
-// 5. Ta emot all data när challenges.js har hämtat den från API:et
+// 4. Ta emot all data när challenges.js har hämtat den från API:et
 window.addEventListener("challengesLoaded", (event) => {
   allChallenges = event.detail;
   updateFilteredChallenges();
 });
-
 
 //----------------textfilter-------------
 
@@ -96,27 +85,51 @@ searchInput.addEventListener("input", async (event) => {
   console.log(filteredChallenges);
 });
 
-async function search(searchInput){
+async function search(searchInput) {
+  try {
+    const response = await fetch(
+      "https://lernia-sjj-assignments.vercel.app/api/challenges",
+    );
 
-    try{
-        const response = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
-
-        if(!response.ok){
-            throw new Error("Failed to fetch resource");
-        }
-
-        const data = await response.json();
-        const searchChallenge = data.challenges;
-        
-        const filteredChallenges = searchChallenge.filter(
-            (searchChallenge) => searchChallenge.title.toLowerCase().includes(searchInput.toLowerCase()) || 
-            searchChallenge.description.toLowerCase().includes(searchInput.toLowerCase())
-        );
-
-        return filteredChallenges;
-
+    if (!response.ok) {
+      throw new Error("Failed to fetch resource");
     }
-    catch(error){
-        console.error(error);
+
+    const data = await response.json();
+    const searchChallenge = data.challenges;
+
+    const filteredChallenges = searchChallenge.filter(
+      (searchChallenge) =>
+        searchChallenge.title
+          .toLowerCase()
+          .includes(searchInput.toLowerCase()) ||
+        searchChallenge.description
+          .toLowerCase()
+          .includes(searchInput.toLowerCase()),
+    );
+
+    return filteredChallenges;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// 5. Meddelande vid inga matchande challenges
+const noMatchesMessage = document.getElementById("no-matches-message");
+
+function updateFilteredChallenges() {
+  const filteredList = filterChallenges(allChallenges);
+
+  if (noMatchesMessage) {
+    if (filteredList.length === 0) {
+      noMatchesMessage.classList.remove("hidden");
+    } else {
+      noMatchesMessage.classList.add("hidden");
     }
+  }
+  window.dispatchEvent(
+    new CustomEvent("challengesFiltered", {
+      detail: filteredList,
+    }),
+  );
 }

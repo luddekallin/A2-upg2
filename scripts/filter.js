@@ -83,3 +83,51 @@ window.addEventListener("challengesLoaded", (event) => {
   allChallenges = event.detail;
   updateFilteredChallenges();
 });
+
+
+//----------------textfilter-------------
+
+const searchInput = document.querySelector(".filter__search-input");
+
+searchInput.addEventListener("input", async (event) => {
+  const searchText = event.target.value;
+  const filteredChallenges = await search(searchText);
+
+  console.log(filteredChallenges);
+});
+
+async function search(searchInput){
+
+    try{
+        const response = await fetch('https://lernia-sjj-assignments.vercel.app/api/challenges');
+
+        if(!response.ok){
+            throw new Error("Failed to fetch resource");
+        }
+
+        const data = await response.json();
+        const searchChallenge = data.challenges;
+        
+        const filteredChallenges = searchChallenge.filter(
+            (searchChallenge) => searchChallenge.title.toLowerCase().includes(searchInput.toLowerCase()) || 
+            searchChallenge.description.toLowerCase().includes(searchInput.toLowerCase())
+        );
+
+        return filteredChallenges;
+
+    }
+    catch(error){
+        console.error(error);
+    }
+}
+// TODO: once the filter block is implemented, filtering by type (via 1st page buttons) should be updated
+// const urlParams = new URLSearchParams(window.location.search);
+// const challengeType = urlParams.get("challengeType");
+
+// if (challengeType === "online") {
+//   document.querySelector("#filter-onsite").checked = false;
+// }
+
+// if (challengeType === "onsite") {
+//   document.querySelector("#filter-online").checked = false;
+// }

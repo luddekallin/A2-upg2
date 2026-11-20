@@ -36,60 +36,44 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-.challenges__card {
-  border-radius: 8px;
-  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
+
+.room-booking-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #011827;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.room-booking-modal--active {
   display: flex;
-  flex-direction: column;
 }
-.challenges__card-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.challenges__card-icon {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.7rem;
-}
-.challenges__card-media {
+
+.room-booking-modal__content {
   position: relative;
-}
-.challenges__card-rating {
-  position: absolute;
-  bottom: 0.5rem;
-  left: 0.5rem;
-}
-.challenges__rating-star {
-  width: 0.5rem;
-  height: auto;
-}
-.challenges__card-title {
-  font-size: 1.12rem;
-  font-weight: 700;
-  margin: 0.3rem 0.7rem;
-}
-.challenges__card-participants {
-  font-size: 0.56rem;
-  margin: 0 0.7rem;
-  font-weight: 400;
-}
-.challenges__card-description {
-  font-size: 0.72rem;
-  margin: 1rem 0.7rem;
-  line-height: 1.4rem;
-}
-.challenges__card-btn {
-  background-color: #e3170a;
+  background-color: #011827;
   color: white;
-  padding: 0.6rem 1.5rem;
-  border-radius: 3px;
-  text-decoration: none;
-  margin: auto 0.7rem 0.7rem 0.7rem;
-  font-size: 0.64rem;
-  font-weight: 700;
-  align-self: flex-end;
+  width: 800px;
+  max-width: 90%;
+  min-height: 500px;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.room-booking-modal__close {
+  position: absolute;
+  color: white;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 .filter {
@@ -97,7 +81,7 @@
   border: 0.15rem solid #72808a;
   font-family: "Roboto", sans-serif;
   color: black;
-  height: 13rem;
+  min-height: 13rem;
   max-width: 39rem;
   margin: 1rem auto;
   padding: 0.5rem 0 0.5rem 1rem;
@@ -277,6 +261,18 @@
 .star-rating label:hover ~ label .star-filled,
 .star-rating input[type=radio]:checked ~ label .star-filled {
   display: block;
+}
+
+.filter__no-matches {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 3rem auto;
+  font-family: "Roboto", sans-serif;
+}
+
+.hidden {
+  display: none !important;
 }
 
 .challenges__card {
@@ -561,7 +557,7 @@ h4 {
 .quotes-container {
   display: flex;
 }
-@media sceeen and (min-width: 870px) {
+@media screen and (min-width: 870px) {
   .quotes-container {
     justify-content: space-around;
   }
@@ -626,7 +622,7 @@ h4 {
 
 .popular-rooms {
   display: flex;
-  height: 19rem;
+  min-height: 19rem;
   overflow: scroll;
   scroll-snap-type: x mandatory;
 }
@@ -644,14 +640,6 @@ h4 {
 .popular-rooms__room {
   list-style-type: none;
   scroll-snap-align: center;
-}
-.popular-rooms__room .popular-rooms-title {
-  font-size: 1.28rem;
-  display: flex;
-  justify-content: center;
-  margin: 1rem;
-}
-.popular-rooms__room {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin: 0.5rem;
@@ -703,7 +691,11 @@ h4 {
   padding: 0.5rem 2rem;
   margin-bottom: 3rem;
   font-weight: bold;
-  text-decoration: none;
+}
+@media screen and (min-width: 1280px) {
+  .panels__info__btn {
+    margin-bottom: 6rem;
+  }
 }
 .panels__img1 {
   width: 100%;

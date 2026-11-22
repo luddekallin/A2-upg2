@@ -133,10 +133,7 @@ function updateFilteredChallenges() {
     }),
   );
 }
-    catch(error){
-        console.error(error);
-    }
-}
+
 // TODO: once the filter block is implemented, filtering by type (via 1st page buttons) should be updated
 // const urlParams = new URLSearchParams(window.location.search);
 // const challengeType = urlParams.get("challengeType");
@@ -148,3 +145,19 @@ function updateFilteredChallenges() {
 // if (challengeType === "onsite") {
 //   document.querySelector("#filter-online").checked = false;
 // }
+
+
+const filterBtnContainer = document.getElementById("filterButton");
+const filterBlockContainer =  document.getElementById("filterBlock");
+const filterBtnCloseContainer = document.getElementById("closeButton");
+
+filterBtnContainer.addEventListener("click", (event) => {
+  filterBtnContainer.classList.add("hidden");
+  filterBlockContainer.classList.remove("hidden");
+});
+
+filterBtnCloseContainer.addEventListener("click", (event) => {
+  filterBlockContainer.classList.add("hidden");
+  filterBtnContainer.classList.remove("hidden");
+
+});

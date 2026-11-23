@@ -106,14 +106,24 @@ function filterChallenges(challenges) {
   });
 }
 
-// 4. Kör filtreringen och skicka ut resultatet till challenges.js
+// 4.  Kör filtreringen och skicka ut resultatet till challenges.js. Meddelande vid inga matchande challenges
+const noMatchesMessage = document.getElementById("no-matches-message");
+
 function updateFilteredChallenges() {
   const filteredList = filterChallenges(allChallenges);
 
+  if (noMatchesMessage) {
+    if (filteredList.length === 0) {
+      noMatchesMessage.classList.remove("hidden");
+      } 
+    else {
+      noMatchesMessage.classList.add("hidden");
+    }
+  }
   window.dispatchEvent(
     new CustomEvent("challengesFiltered", {
       detail: filteredList,
-    }),
+    })
   );
 }
 
@@ -143,16 +153,46 @@ for (let i = 0; i < tagBtns.length; i++) {
       tagBtns[i].classList.remove("filter__tag-btn--active");
       removeItem(tagBtns[i].innerHTML.toLowerCase());
       updateFilteredChallenges();
-    } else {
+    }
+      else{
       tagBtns[i].classList.add("filter__tag-btn--active");
       activeFilters.tag.push(tagBtns[i].innerHTML.toLowerCase());
       updateFilteredChallenges();
     }
   });
-}
+  }
 
 //function för att hitta och ta bort tag från activeFilters
 function removeItem(itemToRemove) {
   const index = activeFilters.tag.indexOf(itemToRemove);
   activeFilters.tag.splice(index, 1);
 }
+
+// TODO: once the filter block is implemented, filtering by type (via 1st page buttons) should be updated
+// const urlParams = new URLSearchParams(window.location.search);
+// const challengeType = urlParams.get("challengeType");
+
+// if (challengeType === "online") {
+//   document.querySelector("#filter-onsite").checked = false;
+// }
+
+// if (challengeType === "onsite") {
+//   document.querySelector("#filter-online").checked = false;
+// }
+
+
+const filterBtnContainer = document.getElementById("filterButton");
+const filterBlockContainer =  document.getElementById("filterBlock");
+const filterBtnCloseContainer = document.getElementById("closeButton");
+
+filterBtnContainer.addEventListener("click", (event) => {
+  filterBtnContainer.classList.add("hidden");
+  filterBlockContainer.classList.remove("hidden");
+});
+
+filterBtnCloseContainer.addEventListener("click", (event) => {
+  filterBlockContainer.classList.add("hidden");
+  filterBtnContainer.classList.remove("hidden");
+
+});
+     

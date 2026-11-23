@@ -3,7 +3,7 @@
   border: 0.15rem solid #72808a;
   font-family: "Roboto", sans-serif;
   color: black;
-  height: 13rem;
+  min-height: 13rem;
   max-width: 39rem;
   margin: 1rem auto;
   padding: 0.5rem 0 0.5rem 1rem;
@@ -132,7 +132,7 @@
     margin: 0.05rem 0.03rem;
     cursor: pointer;
 
-    &--active,
+    &:hover, &--active,
     &[aria-pressed="true"] {
       background-color: #72808a;
       color: black;
@@ -213,4 +213,16 @@
   input[type="radio"]:checked ~ label .star-filled {
     display: block;
   }
+}
+
+.filter__no-matches {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 3rem auto;
+  font-family: "Roboto", sans-serif;
+}
+
+.hidden {
+  display: none !important;
 }

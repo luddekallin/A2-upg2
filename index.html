@@ -4,6 +4,7 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>[ESC] Hacker Escape Rooms</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='output.css'>
 </head>
 <body>
@@ -15,8 +16,8 @@
         
         <nav id="nav-menu">
             <ul class="header__nav" id="nav-menu__list">
-                <li><a class="header__nav__element">Play online</a></li>
-                <li><a class="header__nav__element">Play on-site</a></li>
+                <li><a class="header__nav__element" href="challenges.html?challengeType=online">Play online</a></li>
+                <li><a class="header__nav__element" href="challenges.html?challengeType=onsite">Play on-site</a></li>
                 <li><a class="header__nav__element">The story</a></li>
                 <li><a class="header__nav__element">Contact us</a></li>
             </ul>
@@ -28,8 +29,8 @@
     </header>
 
     <nav class="btns">
-        <a class="btns__on-site" href="">On-site challenges</a>
-        <a class="btns__online" href="">Online challenges</a>
+        <a class="btns__on-site" href="challenges.html?challengeType=onsite">On-site challenges</a>
+        <a class="btns__online" href="challenges.html?challengeType=online">Online challenges</a>
     </nav>
 
     <section class="quotes-container">
@@ -54,8 +55,8 @@
     </section>
 
     <nav class="btns">
-        <a class="btns__on-site" href="">On-site challenges</a>
-        <a class="btns__online" href="">Online challenges</a>
+        <a class="btns__on-site" href="challenges.html?challengeType=onsite">On-site challenges</a>
+        <a class="btns__online" href="challenges.html?challengeType=online">Online challenges</a>
     </nav>
 
     <section class="panels">
@@ -94,8 +95,8 @@
                 <li><a class="footer__site-map__list__contact">Contact Us</a></li>
                 <li><a class="footer__site-map__list__legal">Legal</a></li>
                 <br>
-                <li><a class="footer__site-map__list__online">Play online</a></li>
-                <li><a class="footer__site-map__list__on-site">Play on-site</a></li>
+                <li><a class="footer__site-map__list__online" href="challenges.html?challengeType=online">Play online</a></li>
+                <li><a class="footer__site-map__list__on-site" href="challenges.html?challengeType=onsite">Play on-site</a></li>
             </ul>
         </nav>
 
@@ -117,7 +118,7 @@
                 x
                 </button>
 
-                <h2>Book Room    (step 1)</h2>
+                <h2 id="header__chosen__room">Book Room    (step 1)</h2>
 
                 <p class="info__booking__text">
                 What date would you like to come?

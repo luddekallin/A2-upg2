@@ -25,8 +25,8 @@
 
     <main class="challenges">
       <h1 class="challenges__title">Our challenges</h1>
-      <button class="challenges__filter-btn">Filter challenges</button>
-      <div class="filter">
+      <button class="challenges__filter-btn" id="filterButton">Filter challenges</button>
+      <div class="filter hidden" id="filterBlock">
         <button
           id="closeButton"
           class="filter__close-btn"
@@ -82,14 +82,14 @@
               <h2 class="filter__subtitle">By tags</h2>
               <button type="button" class="filter__tag-btn">Web</button>
               <button type="button" class="filter__tag-btn">Linux</button>
-              <button type="button" class="filter__tag-btn">
-                Cryptography
-              </button>
+              <button type="button" class="filter__tag-btn">CTF</button>
               <button type="button" class="filter__tag-btn">Coding</button>
-              <button type="button" class="filter__tag-btn">
-                Some other tag
-              </button>
-              <button type="button" class="filter__tag-btn">A final tag</button>
+              <button type="button" class="filter__tag-btn">Phreaking</button>
+              <button type="button" class="filter__tag-btn">Hacking</button>
+              <button type="button" class="filter__tag-btn">SSH</button>
+              <button type="button" class="filter__tag-btn">Bash</button>
+              <button type="button" class="filter__tag-btn">Electronics</button>
+              <button type="button" class="filter__tag-btn">JavaScript</button>
             </div>
           </div>
 
@@ -103,145 +103,37 @@
           </div>
         </nav>
       </div>
-      <script src="script.js"></script>
 
-      <section class="challenges__rooms">
-        <div class="challenges__card">
-          <div class="challenges__card-media">
-            <img
-              class="challenges__card-img"
-              src="images/main-img.png"
-              alt="Man sitting in a chair"
-            />
-            <img class="challenges__card-icon" src="images/laptop.svg" alt="" />
-            <div class="challenges__card-rating">
-              <img
-                class="challenges__rating-star"
-                src="images/Star 2.png"
-                alt=""
-              />
-              <img
-                class="challenges__rating-star"
-                src="images/Star 2.png"
-                alt=""
-              />
-              <img
-                class="challenges__rating-star"
-                src="images/Star 2.png"
-                alt=""
-              />
-              <img
-                class="challenges__rating-star"
-                src="images/Star 2.png"
-                alt=""
-              />
-              <img
-                class="challenges__rating-star"
-                src="images/Star 5.png"
-                alt=""
-              />
-            </div>
-          </div>
-          <h2 class="challenges__card-title">Title of challenge</h2>
-          <p class="challenges__card-participants">
-            2 participants (networked)
-          </p>
-          <p class="challenges__card-description">
-            test description, Jag har huvudvärk och är hungrig för tillfället,
-            findland har inga goda pizzor men de kan sin ost sås kan de
-          </p>
-          <button class="challenges__card-btn">Take challenge online</button>
-        </div>
-        <div class="challenges__card">
-          <div class="challenges__card-media">
-            <img
-              class="challenges__card-img"
-              src="images/main-img.png"
-              alt="Man sitting in a chair"
-            />
-            <img class="challenges__card-icon" src="images/house.svg" alt="" />
-            <div class="challenges__card-rating">
-              <img
-                class="challenges__rating-star"
-                src="images/Star 2.png"
-                alt=""
-              />
-              <img
-                class="challenges__rating-star"
-                src="images/Star 2.png"
-                alt=""
-              />
-              <img
-                class="challenges__rating-star"
-                src="images/Star 2.png"
-                alt=""
-              />
-              <img
-                class="challenges__rating-star"
-                src="images/Star 2.png"
-                alt=""
-              />
-              <img
-                class="challenges__rating-star"
-                src="images/Star 5.png"
-                alt=""
-              />
-            </div>
-          </div>
-          <h2 class="challenges__card-title">Title of room (on-site)</h2>
-          <p class="challenges__card-participants">2-6 participants</p>
-          <p class="challenges__card-description">
-            test description, Jag har huvudvärk och är hungrig för tillfället,
-            findland har inga goda pizzor men de kan sin ost sås kan de
-          </p>
-          <button class="challenges__card-btn">Book this room</button>
-        </div>
-        <div class="challenges__card">
-          <div class="challenges__card-media">
-            <img
-              class="challenges__card-img"
-              src="images/main-img.png"
-              alt="Man sitting in a chair"
-            />
-            <img class="challenges__card-icon" src="images/house.svg" alt="" />
-            <div class="challenges__card-rating">
-              <img
-                class="challenges__rating-star"
-                src="images/Star 2.png"
-                alt=""
-              />
-              <img
-                class="challenges__rating-star"
-                src="images/Star 2.png"
-                alt=""
-              />
-              <img
-                class="challenges__rating-star"
-                src="images/Star 2.png"
-                alt=""
-              />
-              <img
-                class="challenges__rating-star"
-                src="images/Star 2.png"
-                alt=""
-              />
-              <img
-                class="challenges__rating-star"
-                src="images/Star 5.png"
-                alt=""
-              />
-            </div>
-          </div>
-          <h2 class="challenges__card-title">Title of room (on-site)</h2>
-          <p class="challenges__card-participants">2-6 participants</p>
-          <p class="challenges__card-description">
-            test description, Jag har huvudvärk och är hungrig för tillfället,
-            findland har inga goda pizzor men de kan sin ost sås kan de
-          </p>
-          <button class="challenges__card-btn">Book this room</button>
-        </div>
-      </section>
+      <p id="no-matches-message" class="filter__no-matches hidden">
+        No matching challenges
+      </p>
+
+      <section class="challenges__rooms"></section>
     </main>
+
+    <div class="room-booking-modal">
+
+            <div class="room-booking-modal__content">
+
+                 <button class="room-booking-modal__close">
+                x
+                </button>
+
+                <h2 id="header__chosen__room">Book Room   (step 1)</h2>
+
+                <p class="info__booking__text">
+                What date would you like to come?
+               </p>
+                <label class="room-booking-btn__label" for="date">Date</label>
+                <input type="date" class="room-booking-modal__date" id="date"> 
+                <br>
+              <div class="confirm-date">  
+                <button class="confirm-booking-btn" type="button">Search available times</button>
+              </div>
+              <div class="available-times-container"></div>
+            </div>
+
+        </div>
 
     <footer class="footer">
       <div class="footer__info">
@@ -275,8 +167,9 @@
       </nav>
     </footer>
 
-    <script src="scripts/filter.js"></script>
-    <script src="challenges.js"></script>
-    <script src="scripts/script.js"></script>
+    <script type="module" src="scripts/filter.js"></script>
+    <script type="module" src="challenges.js"></script>
+    <script type="module" src="scripts/script.js"></script>
+    <script src="booking.js"></script>
   </body>
 </html>

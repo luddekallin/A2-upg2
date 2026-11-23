@@ -1,5 +1,5 @@
 const urlParams = new URLSearchParams(window.location.search);
-const initialType = urlParams.get("type");
+const initialType = urlParams.get("challengeType");
 
 const activeFilters = {
   minRating: 0,
@@ -138,15 +138,14 @@ function updateFilteredChallenges() {
   if (noMatchesMessage) {
     if (filteredList.length === 0) {
       noMatchesMessage.classList.remove("hidden");
-      } 
-    else {
+    } else {
       noMatchesMessage.classList.add("hidden");
     }
   }
   window.dispatchEvent(
     new CustomEvent("challengesFiltered", {
       detail: filteredList,
-    })
+    }),
   );
 }
 
@@ -176,14 +175,13 @@ for (let i = 0; i < tagBtns.length; i++) {
       tagBtns[i].classList.remove("filter__tag-btn--active");
       removeItem(tagBtns[i].innerHTML.toLowerCase());
       updateFilteredChallenges();
-    }
-      else{
+    } else {
       tagBtns[i].classList.add("filter__tag-btn--active");
       activeFilters.tag.push(tagBtns[i].innerHTML.toLowerCase());
       updateFilteredChallenges();
     }
   });
-  }
+}
 
 //function för att hitta och ta bort tag från activeFilters
 function removeItem(itemToRemove) {
@@ -203,9 +201,8 @@ function removeItem(itemToRemove) {
 //   document.querySelector("#filter-online").checked = false;
 // }
 
-
 const filterBtnContainer = document.getElementById("filterButton");
-const filterBlockContainer =  document.getElementById("filterBlock");
+const filterBlockContainer = document.getElementById("filterBlock");
 const filterBtnCloseContainer = document.getElementById("closeButton");
 
 filterBtnContainer.addEventListener("click", (event) => {
@@ -216,6 +213,4 @@ filterBtnContainer.addEventListener("click", (event) => {
 filterBtnCloseContainer.addEventListener("click", (event) => {
   filterBlockContainer.classList.add("hidden");
   filterBtnContainer.classList.remove("hidden");
-
 });
-     

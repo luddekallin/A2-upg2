@@ -64,3 +64,21 @@
     @include btn-red();
     }
 }
+
+.challenges__rooms,
+.popular-rooms {
+    .challenges__card {
+        height: auto;
+        min-height: 17rem;
+    }
+
+    .challenges__card__img {
+        height: 8.5rem;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+
+    .challenges__card__content {
+        overflow: visible;
+    }
+}

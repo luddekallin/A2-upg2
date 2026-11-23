@@ -1,6 +1,6 @@
-const roomButtons = document.querySelectorAll(".popular-rooms__room__btn");
-const modal = document.querySelector(".room-booking-modal");
-const closeButton = document.querySelector(".room-booking-modal__close");
+const roomButtons = document.querySelectorAll(".challenges__card__btn");
+const modal = document.querySelector(".room__booking__modal");
+const closeButton = document.querySelector(".room__booking__modal__close");
 const roomTitle = document.querySelector("#header__chosen__room");
 let selectedChallengeId = null;
 const challengesMap = new Map();
@@ -57,7 +57,7 @@ roomButtons.forEach(button => {
 
         }
 
-        modal.classList.add("room-booking-modal--active");
+        modal.classList.add("room__booking__modal--active");
 
     });
 
@@ -66,7 +66,7 @@ roomButtons.forEach(button => {
 // Stänger modalen via stängknappen
 closeButton.addEventListener("click", () => {
 
-    modal.classList.remove("room-booking-modal--active");
+    modal.classList.remove("room__booking__modal--active");
 
 });
 
@@ -75,7 +75,7 @@ modal.addEventListener("click", (event) => {
 
     if (event.target === modal) {
 
-        modal.classList.remove("room-booking-modal--active");
+        modal.classList.remove("room__booking__modal--active");
 
     }
 

@@ -123,7 +123,7 @@ function updateFilteredChallenges() {
   window.dispatchEvent(
     new CustomEvent("challengesFiltered", {
       detail: filteredList,
-    });
+    })
   );
 }
 

@@ -49,77 +49,7 @@
      
     <section class="popular-rooms-container">
         <h1 class="popular-rooms-title">Popular challenges right now</h1>
-        <ul class="popular-rooms">
-            <li class="popular-rooms__room">
-                <img class="popular-rooms__room__img" src="images/main-img.png">
-                <h2 class="popular-rooms__room__title">Title of room (on-site)</h2>
-                <figure class="popular-rooms__room__stars">
-                    <img class="popular-rooms__room__stars__1" src="images/Star 2.png">
-                    <img class="popular-rooms__room__stars__1" src="images/Star 2.png">
-                    <img class="popular-rooms__room__stars__1" src="images/Star 2.png">
-                    <img class="popular-rooms__room__stars__1" src="images/Star 2.png">
-                    <img class="popular-rooms__room__stars__1" src="images/Star 5.png">
-                    <small class="popular-rooms__room__stars__participants">2-6 participants</small>
-                </figure>
-            
-                <p class="popular-rooms__room__text">Praeterea, ex culpa non invenies unum aut non accusatis unum. Et nihil inuitam. Nemo nocere tibi erit, et non inimicos, et</p>
-                <button class="popular-rooms__room__btn" id="">Book this room</button>
-            </li>
-
-            <li class="popular-rooms__room">
-                <img class="popular-rooms__room__img" src="images/main-img.png">
-                <h2 class="popular-rooms__room__title">Title of room (on-site)</h2>
-                <figure class="popular-rooms__room__stars">
-                    <img class="popular-rooms__room__stars__1" src="images/Star 2.png">
-                    <img class="popular-rooms__room__stars__1" src="images/Star 2.png">
-                    <img class="popular-rooms__room__stars__1" src="images/Star 2.png">
-                    <img class="popular-rooms__room__stars__1" src="images/Star 2.png">
-                    <img class="popular-rooms__room__stars__1" src="images/Star 5.png">
-                    <small class="popular-rooms__room__stars__participants">2-6 participants</small>
-                </figure>
-                <p class="popular-rooms__room__text">Praeterea, ex culpa non invenies unum aut non accusatis unum. Et nihil inuitam. Nemo nocere tibi erit, et non inimicos, et</p>
-                <button class="popular-rooms__room__btn">Book this room</button>
-            </li>
-
-            <li class="popular-rooms__room">
-                <img class="popular-rooms__room__img" src="images/main-img.png">
-                <h2 class="popular-rooms__room__title">Title of room (on-site)</h2>
-                <figure class="popular-rooms__room__stars">
-                    <img class="popular-rooms__room__stars__1" src="images/Star 2.png">
-                    <img class="popular-rooms__room__stars__1" src="images/Star 2.png">
-                    <img class="popular-rooms__room__stars__1" src="images/Star 2.png">
-                    <img class="popular-rooms__room__stars__1" src="images/Star 2.png">
-                    <img class="popular-rooms__room__stars__1" src="images/Star 5.png">
-                    <small class="popular-rooms__room__stars__participants">2-6 participants</small>
-                </figure>
-            
-                <p class="popular-rooms__room__text">Praeterea, ex culpa non invenies unum aut non accusatis unum. Et nihil inuitam. Nemo nocere tibi erit, et non inimicos, et</p>
-                <button class="popular-rooms__room__btn">Book this room</button>
-            </li>
-        </ul>
-        <div class="room-booking-modal">
-
-            <div class="room-booking-modal__content">
-
-                 <button class="room-booking-modal__close">
-                x
-                </button>
-
-                <h2>Book Room    (step 1)</h2>
-
-                <p class="info__booking__text">
-                What date would you like to come?
-               </p>
-                <label class="room-booking-btn__label" for="date">Date</label>
-                <input type="date" class="room-booking-modal__date" id="date"> 
-                <br>
-              <div class="confirm-date">  
-                <button class="confirm-booking-btn" type="button">Search available times</button>
-              </div>
-              <div class="available-times-container"></div>
-            </div>
-
-        </div>
+        <div class="popular-rooms" id="top-challenges"></div>
 
     </section>
 
@@ -147,7 +77,7 @@
         <article class="panels__2">
             <h1 class="panels__2__title">Play online or visit our venue for one of our 25 escape rooms</h1>
             <p class="panels__2__text">Praeterea, ex culpa non invenies unum aut non accusatis unum. Et nihil inuitam. Nemo nocere tibi erit, et non inimicos, et</p>
-            <a class="panels__2__btn">See all challenges</a>
+            <a class="panels__2__btn" href="challenges.html">See all challenges</a>
         </article>
     </section>
 
@@ -179,7 +109,31 @@
         </nav>
     </footer>
 
-    <script src="script.js"></script>
+            <div class="room-booking-modal">
+
+            <div class="room-booking-modal__content">
+
+                 <button class="room-booking-modal__close">
+                x
+                </button>
+
+                <h2>Book Room    (step 1)</h2>
+
+                <p class="info__booking__text">
+                What date would you like to come?
+               </p>
+                <label class="room-booking-btn__label" for="date">Date</label>
+                <input type="date" class="room-booking-modal__date" id="date"> 
+                <br>
+              <div class="confirm-date">  
+                <button class="confirm-booking-btn" type="button">Search available times</button>
+              </div>
+              <div class="available-times-container"></div>
+            </div>
+
+        </div>
+
     <script src="booking.js"></script>
+    <script type="module" src="scripts/script.js"></script>
 </body>
 </html>

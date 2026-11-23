@@ -37,6 +37,7 @@ for (let i = 5; i >= 1; i--) {
   maxRadio.name = "maxRating";
   maxRadio.id = "max-" + i;
   maxRadio.value = i;
+  if (i === 5) maxRadio.checked = true;
 
   const maxLabel = document.createElement("label");
   maxLabel.htmlFor = "max-" + i;
@@ -46,20 +47,41 @@ for (let i = 5; i >= 1; i--) {
   maxContainer.appendChild(maxLabel);
 }
 
-minContainer.addEventListener("change", (event) => {
-  activeFilters.minRating = Number(event.target.value);
-  if (activeFilters.minRating > activeFilters.maxRating) {
-    activeFilters.maxRating = activeFilters.minRating;
-    document.getElementById("max-" + activeFilters.minRating).checked = true;
+minContainer.addEventListener("click", (event) => {
+  if (event.target.type !== "radio") return;
+
+  const clickedValue = Number(event.target.value);
+
+  if (activeFilters.minRating === clickedValue) {
+    event.target.checked = false;
+    activeFilters.minRating = 0;
+  } else {
+    activeFilters.minRating = clickedValue;
+
+    if (activeFilters.minRating > activeFilters.maxRating) {
+      activeFilters.maxRating = activeFilters.minRating;
+      document.getElementById("max-" + activeFilters.minRating).checked = true;
+    }
   }
+
   updateFilteredChallenges();
 });
 
-maxContainer.addEventListener("change", (event) => {
-  activeFilters.maxRating = Number(event.target.value);
-  if (activeFilters.maxRating < activeFilters.minRating) {
-    activeFilters.minRating = activeFilters.maxRating;
-    document.getElementById("min-" + activeFilters.maxRating).checked = true;
+maxContainer.addEventListener("click", (event) => {
+  if (event.target.type !== "radio") return;
+
+  const clickedValue = Number(event.target.value);
+
+  if (activeFilters.maxRating === clickedValue) {
+    event.target.checked = false;
+    activeFilters.maxRating = 5;
+  } else {
+    activeFilters.maxRating = clickedValue;
+
+    if (activeFilters.maxRating < activeFilters.minRating) {
+      activeFilters.minRating = activeFilters.maxRating;
+      document.getElementById("min-" + activeFilters.maxRating).checked = true;
+    }
   }
   updateFilteredChallenges();
 });
@@ -91,12 +113,13 @@ function filterChallenges(challenges) {
       challenge.rating <= activeFilters.maxRating;
 
     const matchesType =
+      (!activeFilters.includeOnline && !activeFilters.includeOnsite) ||
       (challenge.type === "online" && activeFilters.includeOnline) ||
       (challenge.type === "onsite" && activeFilters.includeOnsite);
 
     const matchesTag =
       activeFilters.tag.length === 0 ||
-      activeFilters.tag.some((tag) => challenge.labels.includes(tag));
+      activeFilters.tag.every((tag) => challenge.labels.includes(tag));
     const searchText = activeFilters.searchText.toLowerCase();
     const matchesSearch =
       challenge.title.toLowerCase().includes(searchText) ||

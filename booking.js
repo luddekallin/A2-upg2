@@ -66,7 +66,7 @@ async function loadChallenges() {
 
     if (!response.ok) {
       throw new Error(
-        `HTTP-fel vid hämtning av challenges: ${response.status} ${response.statusText}`,
+        `Error: ${response.status} ${response.statusText}`,
       );
     }
 

@@ -339,66 +339,20 @@
   text-decoration: none;
 }
 
-.room-booking-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #011827;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+.challenges__rooms .challenges__card,
+.popular-rooms .challenges__card {
+  height: auto;
+  min-height: 17rem;
 }
-
-.room-booking-modal--active {
-  display: flex;
+.challenges__rooms .challenges__card__img,
+.popular-rooms .challenges__card__img {
+  height: 8.5rem;
+  object-fit: cover;
+  flex-shrink: 0;
 }
-
-.room-booking-modal__content {
-  position: relative;
-  background-color: #011827;
-  color: white;
-  width: 800px;
-  max-width: 90%;
-  min-height: 500px;
-  padding: 2rem;
-  border-radius: 12px;
-}
-
-.room-booking-modal__close {
-  position: absolute;
-  color: white;
-  top: 10px;
-  right: 15px;
-  border: none;
-  background: none;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-.confirm-date {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.confirm-booking-btn {
-  align-self: flex-end;
-  background-color: purple;
-  color: white;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  margin: 50px;
-  border: none;
-}
-
-.time-select {
-  display: block;
-  margin-top: 1rem;
-  width: 100%;
-  padding: 0.5rem;
+.challenges__rooms .challenges__card__content,
+.popular-rooms .challenges__card__content {
+  overflow: visible;
 }
 
 @keyframes fade-in {

@@ -62,6 +62,7 @@ h4 {
     color: white;
     font-weight: bold;
     margin-top: 0.88rem;
+    text-decoration: none;
 
     @media screen and (min-width: $medium-screen-breakpoint) {
       margin-top: 2.7rem;
@@ -109,8 +110,12 @@ h4 {
   &__nav {
     display: none;
     font-size: 0.9rem;
-    color: white;
     list-style: none;
+
+    &__element{
+      text-decoration: none;
+      color: white;
+    }
 
     &__element:hover {
       cursor: pointer;

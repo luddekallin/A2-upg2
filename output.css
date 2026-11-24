@@ -339,6 +339,22 @@
   text-decoration: none;
 }
 
+.challenges__rooms .challenges__card,
+.popular-rooms .challenges__card {
+  height: auto;
+  min-height: 17rem;
+}
+.challenges__rooms .challenges__card__img,
+.popular-rooms .challenges__card__img {
+  height: 8.5rem;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.challenges__rooms .challenges__card__content,
+.popular-rooms .challenges__card__content {
+  overflow: visible;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -391,6 +407,7 @@ h4 {
   color: white;
   font-weight: bold;
   margin-top: 0.88rem;
+  text-decoration: none;
 }
 @media screen and (min-width: 870px) {
   .header__title {
@@ -439,8 +456,11 @@ h4 {
 .header__nav {
   display: none;
   font-size: 0.9rem;
-  color: white;
   list-style: none;
+}
+.header__nav__element {
+  text-decoration: none;
+  color: white;
 }
 .header__nav__element:hover {
   cursor: pointer;

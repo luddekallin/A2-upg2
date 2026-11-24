@@ -17,8 +17,6 @@ let selectedChallengeId = null;
 let selectedDate = "";
 const challengesMap = new Map();
 
-// Standardtider som fylls i när datum har valts
-const defaultTimes = ["11:00", "12:30", "14:00", "15:30", "18:30", "20:00"];
 
 // Hjälpfunktion för att styra vilket steg som visas
 function showStep(stepNumber) {
@@ -141,19 +139,52 @@ function closeBooking() {
 }
 
 // Steg 1 -> sök tider och gå vidare till steg 2 (eller välj tid)
-searchTimesBtn?.addEventListener("click", () => {
+searchTimesBtn?.addEventListener("click", async () => {
+
   const chosenDate = dateInput?.value ?? "";
+
   if (!chosenDate) {
     dateInput?.reportValidity();
+
     if (availableTimesContainer) {
-      availableTimesContainer.textContent = "Please select a date first.";
+      availableTimesContainer.textContent =
+        "Please select a date first.";
     }
     return;
   }
-
+  // Sparar valt datum
   selectedDate = chosenDate;
-  populateTimes(defaultTimes);
-  showStep(2);
+
+  try {
+
+    // Hämtar lediga tider för valt rum
+    const response = await fetch(
+      `https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=${selectedDate}&challenge=${selectedChallengeId}`
+    );
+
+    if (!response.ok) {
+      throw new Error("Kunde inte hämta tider.");
+    }
+
+    const availableTimes = await response.json();
+
+    console.log("Available times:", availableTimes);
+
+    // Fyller knapparna och select-menyn med tider
+    populateTimes(availableTimes.slots);
+
+    // Gå vidare till steg 2
+    showStep(2);
+
+  } catch (error) {
+
+    console.error(error);
+
+    if (availableTimesContainer) {
+      availableTimesContainer.textContent =
+        "Could not load available times.";
+    }
+  }
 });
 
 // Initierar sidan och öppnar ev. rum från URL (?challenge=...)

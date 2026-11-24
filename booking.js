@@ -6,8 +6,58 @@ const bookingForm = document.querySelector(".booking-form");
 const thankYou = document.querySelector(".thank-you");
 const participantsSelect = document.querySelector(".booking-form__participants");
 
+// Steg 1-element
+const step1Container = document.querySelector('[data-step="1"]');
+const dateInput = document.querySelector("#date");
+const searchTimesBtn = document.querySelector(".confirm-booking-btn");
+const availableTimesContainer = document.querySelector(".available-times-container");
+const timesSelect = document.querySelector(".booking-form__times");
+
 let selectedChallengeId = null;
+let selectedDate = "";
 const challengesMap = new Map();
+
+// Standardtider som fylls i när datum har valts
+const defaultTimes = ["11:00", "12:30", "14:00", "15:30", "18:30", "20:00"];
+
+// Hjälpfunktion för att styra vilket steg som visas
+function showStep(stepNumber) {
+  if (step1Container) {
+    step1Container.classList.toggle("hidden", stepNumber !== 1);
+  }
+  bookingForm?.classList.toggle("hidden", stepNumber !== 2);
+  thankYou?.classList.toggle("hidden", stepNumber !== 3);
+}
+
+// Fyller tider i både steg 1 (knappar) och steg 2 (<select>)
+function populateTimes(times) {
+  if (timesSelect) {
+    timesSelect.innerHTML = "";
+    for (const time of times) {
+      const option = document.createElement("option");
+      option.value = time;
+      option.textContent = time;
+      timesSelect.appendChild(option);
+    }
+  }
+
+  if (availableTimesContainer) {
+    availableTimesContainer.innerHTML = "";
+    for (const time of times) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "available-time-btn";
+      btn.textContent = time;
+      btn.addEventListener("click", () => {
+        if (timesSelect) {
+          timesSelect.value = time;
+        }
+        showStep(2);
+      });
+      availableTimesContainer.appendChild(btn);
+    }
+  }
+}
 
 // Hämtar alla challenges från API:t
 async function loadChallenges() {
@@ -49,6 +99,7 @@ function openBooking(challengeId) {
   if (!numericId) return;
 
   selectedChallengeId = numericId;
+  selectedDate = "";
   const chosenRoom = challengesMap.get(selectedChallengeId);
 
   if (chosenRoom) {
@@ -77,15 +128,33 @@ function openBooking(challengeId) {
   }
 
   bookingForm?.reset();
-  bookingForm?.classList.remove("hidden");
-  thankYou?.classList.add("hidden");
+  if (dateInput) dateInput.value = "";
+  if (availableTimesContainer) availableTimesContainer.innerHTML = "";
+  showStep(1);
   modal.classList.add("room-booking-modal--active");
 }
 
 // Stänger modalen
 function closeBooking() {
   modal?.classList.remove("room-booking-modal--active");
+  showStep(1);
 }
+
+// Steg 1 -> sök tider och gå vidare till steg 2 (eller välj tid)
+searchTimesBtn?.addEventListener("click", () => {
+  const chosenDate = dateInput?.value ?? "";
+  if (!chosenDate) {
+    dateInput?.reportValidity();
+    if (availableTimesContainer) {
+      availableTimesContainer.textContent = "Please select a date first.";
+    }
+    return;
+  }
+
+  selectedDate = chosenDate;
+  populateTimes(defaultTimes);
+  showStep(2);
+});
 
 // Initierar sidan och öppnar ev. rum från URL (?challenge=...)
 async function initBooking() {
@@ -122,24 +191,23 @@ modal?.addEventListener("click", (event) => {
   }
 });
 
-// Hanterar formulärskick
+// Hanterar formulärskick (Steg 2 -> Steg 3)
 bookingForm?.addEventListener("submit", function (e) {
   e.preventDefault();
 
   const name = document.querySelector("#name")?.value ?? "";
   const email = document.querySelector("#email")?.value ?? "";
-  const time = document.querySelector(".booking-form__times")?.value ?? "";
-  const participants =
-    document.querySelector(".booking-form__participants")?.value ?? "";
+  const time = timesSelect?.value ?? "";
+  const participants = participantsSelect?.value ?? "";
 
   console.log("Bokning inskickad", {
     challengeId: selectedChallengeId,
+    date: selectedDate,
     name,
     email,
     time,
     participants,
   });
 
-  bookingForm.classList.add("hidden");
-  thankYou?.classList.remove("hidden");
+  showStep(3);
 });

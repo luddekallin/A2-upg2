@@ -90,7 +90,16 @@ function createRatingStars(rating) {
 
   for (let i = 1; i <= maxRating; i += 1) {
     const isActive = i <= rating;
-    stars += `<span class="challenges__card__star ${isActive ? "challenges__card__star--active" : ""}">★</span>`;
+    const isHalfStar = rating - (i - 1) === 0.5;
+    console.log(rating, i, isActive, isHalfStar);
+    let starClass = "challenges__card__star";
+    if (isHalfStar) {
+      starClass += " challenges__card__star--half";
+    }
+    else if (isActive) {
+      starClass += " challenges__card__star--active";
+    }
+    stars += `<span class="${starClass}">★</span>`;
   }
 
   return stars;

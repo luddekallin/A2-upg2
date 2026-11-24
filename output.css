@@ -311,6 +311,11 @@
 .challenges__card__star--active {
   color: red;
 }
+.challenges__card__star--half {
+  background: linear-gradient(to right, red 50%, #cfb5b5 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .challenges__card__participants {
   font-size: 0.56rem;
   padding-left: 0.4rem;

@@ -38,6 +38,12 @@
     &--active {
         color: red;
     }
+    &--half {
+        background: linear-gradient(to right, red 50%, #cfb5b5 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
     }
 
     &__participants {

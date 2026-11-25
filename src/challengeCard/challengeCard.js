@@ -22,7 +22,7 @@ export function createChallengeCard(challenge, design = "figma") {
 
     <div class="challenges__card__content">
       <h3 class="challenges__card__title">${challenge.title} ${challenge.type === "online" ? "Online" : "On-site"}</h3>
-
+      
       <div class="challenges__card__meta">
         <div class="challenges__card__stars">
           ${stars}
@@ -36,13 +36,15 @@ export function createChallengeCard(challenge, design = "figma") {
         ${challenge.description}
       </p>
 
-      <a
-          class="challenges__card__btn"
-          href="/challenges.html?challenge=${challenge.id}"
-          data-id="${challenge.id}"
-        >
-          Book this room
-      </a>
+      <div class="challenges__card__footer">
+        <a
+            class="challenges__card__btn"
+            href="/challenges.html?challenge=${challenge.id}"
+            data-id="${challenge.id}"
+          >
+            Book this room
+        </a>
+      </div>
     </div>
   `;
   if (design === "wireframe") {

@@ -886,11 +886,11 @@ h4 {
   }
 }
 .panels__1__btn {
-  font-size: 0.95rem;
   background-color: #e3170a;
   color: white;
-  padding: 0.6rem 1.8rem;
-  border-radius: 4px;
+  padding: 0.6rem 1.5rem;
+  border-radius: 3px;
+  text-decoration: none;
 }
 .panels__2 {
   margin: 1rem 0.7rem;
@@ -969,6 +969,10 @@ h4 {
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+.footer__site-map__list__online, .footer__site-map__list__on-site {
+  text-decoration: none;
+  color: white;
 }
 .footer__follow {
   margin-bottom: 1rem;

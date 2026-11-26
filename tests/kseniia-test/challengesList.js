@@ -1,3 +1,9 @@
+export function getTopChallenges(challenges) {
+    return [...challenges]
+                .sort((a, b) => b.rating - a.rating)
+                .slice(0, 3)
+};
+
 export const challengesList = 
 [
     {

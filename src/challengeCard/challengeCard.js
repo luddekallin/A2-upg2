@@ -22,7 +22,6 @@ export function createChallengeCard(challenge, design = "figma") {
 
     <div class="challenges__card__content">
       <h3 class="challenges__card__title">${challenge.title} ${challenge.type === "online" ? "Online" : "On-site"}</h3>
-      
       <div class="challenges__card__meta">
         <div class="challenges__card__stars">
           ${stars}

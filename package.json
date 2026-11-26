@@ -16,9 +16,13 @@
   "main": "index.js",
   "scripts": {
     "build": "sass --no-source-map src/main.scss output.css",
-    "watch": "sass --watch --no-source-map src/main.scss output.css"
+    "watch": "sass --watch --no-source-map src/main.scss output.css",
+    "test": "jest"
   },
   "dependencies": {
     "sass": "^1.105.2"
+  },
+  "devDependencies": {
+    "jest": "^30.5.2"
   }
 }

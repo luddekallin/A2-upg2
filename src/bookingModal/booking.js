@@ -1,3 +1,5 @@
+import { loadChallenges, getAvailableTime } from "../scripts/api.js";
+
 const modal = document.querySelector(".room-booking-modal");
 const closeButton = document.querySelector(".room-booking-modal__close");
 const roomTitle = document.querySelector("#header__chosen__room");
@@ -59,38 +61,6 @@ function populateTimes(times) {
       });
       availableTimesContainer.appendChild(btn);
     }
-  }
-}
-
-// Hämtar alla challenges från API:t
-async function loadChallenges() {
-  try {
-    const response = await fetch(
-      "https://lernia-sjj-assignments.vercel.app/api/challenges",
-    );
-
-    if (!response.ok) {
-      throw new Error(
-        `Error: ${response.status} ${response.statusText}`,
-      );
-    }
-
-    const data = await response.json();
-    const challengesFromApi = Array.isArray(data)
-      ? data
-      : (data.challenges ?? []);
-
-    console.log("Challenges:", challengesFromApi);
-
-    for (const challenge of challengesFromApi) {
-      challengesMap.set(challenge.id, {
-        title: challenge.title,
-        minParticipants: challenge.minParticipants,
-        maxParticipants: challenge.maxParticipants,
-      });
-    }
-  } catch (error) {
-    console.error("Kunde inte ladda challenges från API:t:", error);
   }
 }
 
@@ -160,41 +130,25 @@ searchTimesBtn?.addEventListener("click", async () => {
   // Sparar valt datum
   selectedDate = chosenDate;
 
-  try {
-
-    // Hämtar lediga tider för valt rum
-    const response = await fetch(
-      `https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=${selectedDate}&challenge=${selectedChallengeId}`
-    );
-
-    if (!response.ok) {
-      throw new Error("Kunde inte hämta tider.");
-    }
-
-    const availableTimes = await response.json();
-
-    console.log("Available times:", availableTimes);
-
-    // Fyller knapparna och select-menyn med tider
+  const availableTimes = await getAvailableTime(selectedDate, selectedChallengeId, availableTimesContainer);
+      // Fyller knapparna och select-menyn med tider
     populateTimes(availableTimes.slots);
 
     // Gå vidare till steg 2
     showStep(2);
 
-  } catch (error) {
-
-    console.error(error);
-
-    if (availableTimesContainer) {
-      availableTimesContainer.textContent =
-        "Could not load available times.";
-    }
-  }
 });
 
 // Initierar sidan och öppnar ev. rum från URL (?challenge=...)
 async function initBooking() {
-  await loadChallenges();
+  const challengesFromApi = await loadChallenges();
+  for (const challenge of challengesFromApi) {
+    challengesMap.set(challenge.id, {
+      title: challenge.title,
+      minParticipants: challenge.minParticipants,
+      maxParticipants: challenge.maxParticipants,
+    });
+  }
 
   const params = new URLSearchParams(window.location.search);
   const challengeIdFromUrl = params.get("challenge");

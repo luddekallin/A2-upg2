@@ -1,5 +1,5 @@
-import { getChallenges } from './api.js';
-import { createChallengeCard } from '../src/challengeCard/challengeCard.js';
+import { loadChallenges } from './api.js';
+import { createChallengeCard } from '../challengeCard/challengeCard.js';
 
 //variables
 const menuBtn = document.querySelector("#menu-btn");
@@ -41,7 +41,7 @@ const topChallengesContainer = document.querySelector('#top-challenges');
 
 async function renderTopChallenges() {
   try {
-    const challenges = await getChallenges();
+    const challenges = await loadChallenges();
 
     const topChallenges = [...challenges]
       .sort((a, b) => b.rating - a.rating)

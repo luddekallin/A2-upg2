@@ -106,7 +106,7 @@ if (onlineCheckbox && onsiteCheckbox) {
 }
 
 // 3. Filtreringsfunktion (kontrollerar stjärnbetyg och by type)
-function filterChallenges(challenges) {
+export function filterChallenges(challenges) {
   return challenges.filter((challenge) => {
     const matchesRating =
       challenge.rating >= activeFilters.minRating &&

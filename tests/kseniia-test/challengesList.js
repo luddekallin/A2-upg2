@@ -1,0 +1,288 @@
+export function getTopChallenges(challenges) {
+    return [...challenges]
+                .sort((a, b) => b.rating - a.rating)
+                .slice(0, 3)
+};
+
+export const challengesList = 
+[
+    {
+        "id": 3,
+        "type": "onsite",
+        "title": "Challenge online",
+        "description": "Take the ultimate challenge in this ultimate challenge",
+        "minParticipants": 2,
+        "maxParticipants": 9,
+        "rating": 3.5,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "javascript",
+            "hacking",
+            "javascript"
+        ]
+    },
+    {
+        "id": 4,
+        "type": "onsite",
+        "title": "Intelligence in space",
+        "description": "Hackers of the world, unite",
+        "minParticipants": 1,
+        "maxParticipants": 8,
+        "rating": 4,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "javascript",
+            "ctf",
+            "ssh",
+            "linux"
+        ]
+    },
+    {
+        "id": 7,
+        "type": "onsite",
+        "title": "Hacking in space",
+        "description": "Go out into space and back without leaving your computer",
+        "minParticipants": 1,
+        "maxParticipants": 2,
+        "rating": 4,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "electronics",
+            "ssh"
+        ]
+    },
+    {
+        "id": 8,
+        "type": "onsite",
+        "title": "Game on Windows",
+        "description": "Take over the world with code",
+        "minParticipants": 2,
+        "maxParticipants": 10,
+        "rating": 0.5,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "phreaking",
+            "hacking",
+            "phreaking"
+        ]
+    },
+    {
+        "id": 9,
+        "type": "onsite",
+        "title": "Code in space",
+        "description": "Bring back the skills of the past",
+        "minParticipants": 2,
+        "maxParticipants": 5,
+        "rating": 4.5,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "phreaking",
+            "electronics",
+            "javascript"
+        ]
+    },
+    {
+        "id": 10,
+        "type": "onsite",
+        "title": "Hacking for hackers",
+        "description": "Hackers of the world, unite",
+        "minParticipants": 1,
+        "maxParticipants": 2,
+        "rating": 0,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "linux",
+            "web"
+        ]
+    },
+    {
+        "id": 12,
+        "type": "onsite",
+        "title": "Mystery demystified",
+        "description": "Bring back the skills of the past",
+        "minParticipants": 2,
+        "maxParticipants": 11,
+        "rating": 4.5,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "phreaking",
+            "bash"
+        ]
+    },
+    {
+        "id": 14,
+        "type": "onsite",
+        "title": "Hacking 2000",
+        "description": "Do you have the skills to survive?",
+        "minParticipants": 2,
+        "maxParticipants": 4,
+        "rating": 3.5,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "bash",
+            "javascript",
+            "coding"
+        ]
+    },
+    {
+        "id": 15,
+        "type": "onsite",
+        "title": "Challenge in the night",
+        "description": "Take the ultimate challenge in this ultimate challenge",
+        "minParticipants": 2,
+        "maxParticipants": 11,
+        "rating": 2.5,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "hacking",
+            "coding",
+            "coding",
+            "bash"
+        ]
+    },
+    {
+        "id": 16,
+        "type": "onsite",
+        "title": "Room in space",
+        "description": "Hackers of the world, unite",
+        "minParticipants": 1,
+        "maxParticipants": 6,
+        "rating": 1,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "phreaking",
+            "linux",
+            "ctf"
+        ]
+    },
+    {
+        "id": 18,
+        "type": "onsite",
+        "title": "Intelligence 2.0",
+        "description": "Take the ultimate challenge in this ultimate challenge",
+        "minParticipants": 2,
+        "maxParticipants": 5,
+        "rating": 4.5,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "web",
+            "linux",
+            "javascript",
+            "web"
+        ]
+    },
+    {
+        "id": 19,
+        "type": "onsite",
+        "title": "Intelligence 2000",
+        "description": "Go out into space and back without leaving your computer",
+        "minParticipants": 1,
+        "maxParticipants": 4,
+        "rating": 3,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "phreaking",
+            "ssh"
+        ]
+    },
+    {
+        "id": 21,
+        "type": "onsite",
+        "title": "Challenge in the machine",
+        "description": "Bring back the skills of the past",
+        "minParticipants": 2,
+        "maxParticipants": 7,
+        "rating": 0.5,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "ssh",
+            "web",
+            "coding"
+        ]
+    },
+    {
+        "id": 22,
+        "type": "onsite",
+        "title": "Project: X of Doom",
+        "description": "Hackers of the world, unite",
+        "minParticipants": 1,
+        "maxParticipants": 10,
+        "rating": 3,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "linux",
+            "electronics",
+            "coding"
+        ]
+    },
+    {
+        "id": 23,
+        "type": "onsite",
+        "title": "Project: X in the machine",
+        "description": "Take the ultimate challenge in this ultimate challenge",
+        "minParticipants": 2,
+        "maxParticipants": 4,
+        "rating": 3.5,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "ssh",
+            "ctf"
+        ]
+    },
+    {
+        "id": 25,
+        "type": "onsite",
+        "title": "Linux demystified",
+        "description": "Go out into space and back without leaving your computer",
+        "minParticipants": 1,
+        "maxParticipants": 10,
+        "rating": 0,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "javascript",
+            "hacking"
+        ]
+    },
+    {
+        "id": 27,
+        "type": "onsite",
+        "title": "Mystery for hackers",
+        "description": "Take the ultimate challenge in this ultimate challenge",
+        "minParticipants": 2,
+        "maxParticipants": 3,
+        "rating": 1.5,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "javascript",
+            "ctf"
+        ]
+    },
+    {
+        "id": 29,
+        "type": "onsite",
+        "title": "Shell on Windows",
+        "description": "Bring back the skills of the past",
+        "minParticipants": 2,
+        "maxParticipants": 10,
+        "rating": 4.5,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "bash",
+            "ssh"
+        ]
+    },
+    {
+        "id": 30,
+        "type": "onsite",
+        "title": "Binary dreams demystified",
+        "description": "Take the ultimate challenge in this ultimate challenge",
+        "minParticipants": 2,
+        "maxParticipants": 3,
+        "rating": 2.5,
+        "image": "https://placecats.com/640/480",
+        "labels": [
+            "javascript",
+            "electronics"
+        ]
+    }
+]

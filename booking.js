@@ -23,11 +23,17 @@ function showStep(stepNumber) {
   if (step1Container) {
     step1Container.classList.toggle("hidden", stepNumber !== 1);
   }
+
   bookingForm?.classList.toggle("hidden", stepNumber !== 2);
   thankYou?.classList.toggle("hidden", stepNumber !== 3);
+
+  if (roomTitle) {
+    roomTitle.classList.toggle("hidden", stepNumber === 3);
+  }
 }
 
-// Fyller tider i både steg 1 (knappar) och steg 2 (<select>)
+
+// Fyller tider i både steg 1 (knappar) och steg 2 (select)
 function populateTimes(times) {
   if (timesSelect) {
     timesSelect.innerHTML = "";
@@ -102,11 +108,11 @@ function openBooking(challengeId) {
 
   if (chosenRoom) {
     if (roomTitle) {
-      roomTitle.textContent = chosenRoom.title;
+      roomTitle.textContent = `Book this room: ${chosenRoom.title}`;
     }
 
     if (formRoomTitle) {
-      formRoomTitle.textContent = `Book this room "${chosenRoom.title}"`;
+      formRoomTitle.textContent = `Book this room: ${chosenRoom.title}`;
     }
 
     if (participantsSelect) {

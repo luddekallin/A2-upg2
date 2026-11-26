@@ -85,7 +85,7 @@ export function createChallengeCard(challenge, design = "figma") {
   return card;
 }
 
-function createRatingStars(rating) {
+export function createRatingStars(rating) {
   const maxRating = 5;
   let stars = "";
 

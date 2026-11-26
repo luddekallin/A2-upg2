@@ -219,7 +219,6 @@ h4 {
     display: flex;
     justify-content: center;
     margin: 1rem 0 2rem;
-
     font-size: 0.64rem;
     font-weight: bold;
     color: #36769d;
@@ -426,11 +425,7 @@ h4 {
     }
 
     &__btn {
-      font-size: 0.95rem;
-      background-color: #e3170a;
-      color: white;
-      padding: 0.6rem 1.8rem;
-      border-radius: 4px;
+      @include btn-red();
     }
   }
 
@@ -507,6 +502,11 @@ h4 {
       list-style-type: none;
       padding: 0;
       margin: 0;
+    
+    &__online,
+    &__on-site {
+      text-decoration: none;
+      color: white;
     }
   }
 

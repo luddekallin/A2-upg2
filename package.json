@@ -16,9 +16,16 @@
   "main": "index.js",
   "scripts": {
     "build": "sass --no-source-map src/main.scss output.css",
-    "watch": "sass --watch --no-source-map src/main.scss output.css"
+    "watch": "sass --watch --no-source-map src/main.scss output.css",
+    "test": "jest"
   },
   "dependencies": {
     "sass": "^1.105.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.13",
+    "@babel/preset-env": "^7.29.14",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
   }
 }

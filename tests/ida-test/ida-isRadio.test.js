@@ -1,4 +1,4 @@
-const { isRadio, isChecked } = require("./tests/ida-isRadio");
+const { isRadio, isChecked } = require("./ida-isRadio");
 
 //maxContainer i filter.js
 test("returnerar true när target är en radioknapp", () => {

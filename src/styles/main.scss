@@ -2,11 +2,11 @@ $medium-screen-breakpoint: 870px;
 $medium-large-screen-breakpoint: 1080px;
 $large-screen-breakpoint: 1280px;
 
-@use "_mixins" as *;
-@use "sections/challenges";
-@use "sections/booking";
-@use "sections/filter";
-@use "challengeCard/challengeCard";
+@use "../styles/_mixins" as *;
+@use "../challengesPage/challenges";
+@use "../bookingModal/booking";
+@use "../styles/filter";
+@use "../challengeCard/challengeCard";
 
 @keyframes fade-in {
   from {

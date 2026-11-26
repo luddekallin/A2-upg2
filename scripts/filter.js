@@ -27,7 +27,7 @@ for (let i = 5; i >= 1; i--) {
 
   const minLabel = document.createElement("label");
   minLabel.htmlFor = "min-" + i;
-  minLabel.innerHTML = `<img src="images/Star 5.png" class="star-empty" alt="${i} stjärnor"> <img src="images/Star 2.png" class="star-filled" alt="${i} stjärnor">`;
+  minLabel.innerHTML = `<img src="../../images/Star 5.png" class="star-empty" alt="${i} stjärnor"> <img src="../../images/Star 2.png" class="star-filled" alt="${i} stjärnor">`;
   minContainer.appendChild(minRadio);
   minContainer.appendChild(minLabel);
 
@@ -42,7 +42,7 @@ for (let i = 5; i >= 1; i--) {
   const maxLabel = document.createElement("label");
   maxLabel.htmlFor = "max-" + i;
 
-  maxLabel.innerHTML = `<img src="images/Star 5.png" class="star-empty" alt="${i} stjärnor"> <img src="images/Star 2.png" class="star-filled" alt="${i} stjärnor">`;
+  maxLabel.innerHTML = `<img src="../../images/Star 5.png" class="star-empty" alt="${i} stjärnor"> <img src="../../images/Star 2.png" class="star-filled" alt="${i} stjärnor">`;
   maxContainer.appendChild(maxRadio);
   maxContainer.appendChild(maxLabel);
 }

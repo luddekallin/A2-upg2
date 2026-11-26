@@ -38,7 +38,7 @@ export function createChallengeCard(challenge, design = "figma") {
       <div class="challenges__card__footer">
         <a
             class="challenges__card__btn"
-            href="/challenges.html?challenge=${challenge.id}"
+            href="/src/challengesPage/challenges.html?challenge=${challenge.id}"
             data-id="${challenge.id}"
           >
             Book this room

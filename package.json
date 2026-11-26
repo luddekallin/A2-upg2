@@ -15,8 +15,8 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "build": "sass --no-source-map src/main.scss output.css",
-    "watch": "sass --watch --no-source-map src/main.scss output.css",
+    "build": "sass --no-source-map src/styles/main.scss output.css",
+    "watch": "sass --watch --no-source-map src/styles/main.scss output.css",
     "test": "jest"
   },
   "dependencies": {

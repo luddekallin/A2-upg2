@@ -1,5 +1,5 @@
-import { getChallenges } from "./scripts/api.js";
-import { createChallengeCard } from "./src/challengeCard/challengeCard.js";
+import { getChallenges } from "../../scripts/api.js";
+import { createChallengeCard } from "../challengeCard/challengeCard.js";
 
 const challengesContainer = document.querySelector(".challenges__rooms");
 

@@ -32,7 +32,6 @@ function showStep(stepNumber) {
   }
 }
 
-
 // Fyller tider i både steg 1 (knappar) och steg 2 (select)
 function populateTimes(times) {
   if (timesSelect) {

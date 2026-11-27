@@ -46,6 +46,7 @@
   transform: translate(-50%, -50%);
   width: 80vw;
   max-width: 1000px;
+  height: 350px;
   min-height: 350px;
   height: auto;
   background-color: #011827;
@@ -1008,7 +1009,7 @@ h4 {
   padding: 0;
   margin: 0;
 }
-.footer__site-map__online, .footer__site-map__on-site {
+.footer__site-map__list__online, .footer__site-map__list__on-site {
   text-decoration: none;
   color: white;
 }

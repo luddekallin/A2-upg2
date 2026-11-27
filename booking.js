@@ -4,19 +4,22 @@ const roomTitle = document.querySelector("#header__chosen__room");
 const formRoomTitle = document.querySelector(".title-room");
 const bookingForm = document.querySelector(".booking-form");
 const thankYou = document.querySelector(".thank-you");
-const participantsSelect = document.querySelector(".booking-form__participants");
+const participantsSelect = document.querySelector(
+  ".booking-form__participants",
+);
 
 // Steg 1-element
 const step1Container = document.querySelector('[data-step="1"]');
 const dateInput = document.querySelector("#date");
 const searchTimesBtn = document.querySelector(".confirm-booking-btn");
-const availableTimesContainer = document.querySelector(".available-times-container");
+const availableTimesContainer = document.querySelector(
+  ".available-times-container",
+);
 const timesSelect = document.querySelector(".booking-form__times");
 
 let selectedChallengeId = null;
 let selectedDate = "";
 const challengesMap = new Map();
-
 
 // Hjälpfunktion för att styra vilket steg som visas
 function showStep(stepNumber) {
@@ -34,9 +37,11 @@ function showStep(stepNumber) {
 
 // Fyller tider i både steg 1 (knappar) och steg 2 (select)
 function populateTimes(times) {
+  const uniqueTimes = [...new Set(times ?? [])];
+
   if (timesSelect) {
     timesSelect.innerHTML = "";
-    for (const time of times) {
+    for (const time of uniqueTimes) {
       const option = document.createElement("option");
       option.value = time;
       option.textContent = time;
@@ -46,7 +51,7 @@ function populateTimes(times) {
 
   if (availableTimesContainer) {
     availableTimesContainer.innerHTML = "";
-    for (const time of times) {
+    for (const time of uniqueTimes) {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "available-time-btn";
@@ -70,9 +75,7 @@ async function loadChallenges() {
     );
 
     if (!response.ok) {
-      throw new Error(
-        `Error: ${response.status} ${response.statusText}`,
-      );
+      throw new Error(`Error: ${response.status} ${response.statusText}`);
     }
 
     const data = await response.json();
@@ -145,15 +148,13 @@ function closeBooking() {
 
 // Steg 1 -> sök tider och gå vidare till steg 2 (eller välj tid)
 searchTimesBtn?.addEventListener("click", async () => {
-
   const chosenDate = dateInput?.value ?? "";
 
   if (!chosenDate) {
     dateInput?.reportValidity();
 
     if (availableTimesContainer) {
-      availableTimesContainer.textContent =
-        "Please select a date first.";
+      availableTimesContainer.textContent = "Please select a date first.";
     }
     return;
   }
@@ -161,10 +162,9 @@ searchTimesBtn?.addEventListener("click", async () => {
   selectedDate = chosenDate;
 
   try {
-
     // Hämtar lediga tider för valt rum
     const response = await fetch(
-      `https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=${selectedDate}&challenge=${selectedChallengeId}`
+      `https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=${selectedDate}&challenge=${selectedChallengeId}`,
     );
 
     if (!response.ok) {
@@ -180,14 +180,11 @@ searchTimesBtn?.addEventListener("click", async () => {
 
     // Gå vidare till steg 2
     showStep(2);
-
   } catch (error) {
-
     console.error(error);
 
     if (availableTimesContainer) {
-      availableTimesContainer.textContent =
-        "Could not load available times.";
+      availableTimesContainer.textContent = "Could not load available times.";
     }
   }
 });

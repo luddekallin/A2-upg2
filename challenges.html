@@ -12,15 +12,29 @@
   </head>
   <body>
     <header class="header">
-      <a href="index.html"><img class="header__logo" src="images/logo.png"/></a>
+      <a href="index.html"
+        ><img class="header__logo" src="images/logo.png"
+      /></a>
       <a class="header__title" href="index.html">Hacker Escape Rooms</a>
 
       <button class="header__hamburger" id="menu-btn"></button>
 
       <nav id="nav-menu">
         <ul class="header__nav" id="nav-menu__list">
-          <li><a class="header__nav__element" href="challenges.html?challengeType=online">Play online</a></li>
-          <li><a class="header__nav__element" href="challenges.html?challengeType=onsite">Play on-site</a></li>
+          <li>
+            <a
+              class="header__nav__element"
+              href="challenges.html?challengeType=online"
+              >Play online</a
+            >
+          </li>
+          <li>
+            <a
+              class="header__nav__element"
+              href="challenges.html?challengeType=onsite"
+              >Play on-site</a
+            >
+          </li>
           <li><a class="header__nav__element">The story</a></li>
           <li><a class="header__nav__element">Contact us</a></li>
         </ul>
@@ -130,12 +144,11 @@
           <input type="date" class="room-booking-modal__date" id="date" />
           <br />
           <div class="confirm-date">
+            <div class="available-times-container"></div>
             <button class="confirm-booking-btn" type="button">
               Search available times
             </button>
           </div>
-          <p class="booking-error" style="display: none"></p>
-          <div class="available-times-container"></div>
         </div>
         <!-- STEG 2: Booking form -->
         <form class="booking-form" data-step="2" hidden>
@@ -186,8 +199,20 @@
           <li><a class="footer__site-map__list__contact">Contact Us</a></li>
           <li><a class="footer__site-map__list__legal">Legal</a></li>
           <br />
-          <li><a class="footer__site-map__list__online" href="challenges.html?challengeType=online">Play online</a></li>
-          <li><a class="footer__site-map__list__on-site" href="challenges.html?challengeType=onsite">Play on-site</a></li>
+          <li>
+            <a
+              class="footer__site-map__list__online"
+              href="challenges.html?challengeType=online"
+              >Play online</a
+            >
+          </li>
+          <li>
+            <a
+              class="footer__site-map__list__on-site"
+              href="challenges.html?challengeType=onsite"
+              >Play on-site</a
+            >
+          </li>
         </ul>
       </nav>
 

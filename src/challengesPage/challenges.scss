@@ -1,4 +1,4 @@
-@use "../_mixins";
+@use "../styles/_mixins";
 .challenges {
   padding: 0 1rem;
 
@@ -33,5 +33,4 @@
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
-  
 }

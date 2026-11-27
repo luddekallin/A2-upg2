@@ -112,7 +112,7 @@ h4 {
     font-size: 0.9rem;
     list-style: none;
 
-    &__element{
+    &__element {
       text-decoration: none;
       color: white;
     }
@@ -493,35 +493,37 @@ h4 {
 
   &__site-map {
     margin-bottom: 1.8rem;
-    &__title {
-      font-weight: bold;
-      margin-bottom: 0.4rem;
-    }
+  }
 
- &__list {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
+  &__title {
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+  }
 
-    &__online,
-    &__on-site {
-      text-decoration: none;
-      color: white;
-    }
+  &__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__online,
+  &__on-site {
+    text-decoration: none;
+    color: white;
   }
 
   &__follow {
     margin-bottom: 1rem;
-    &__title {
-      font-weight: bold;
-      margin-bottom: 0.4rem;
-    }
+  }
 
-    &__list {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
+  &__title {
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+  }
+
+  &__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
   }
 }

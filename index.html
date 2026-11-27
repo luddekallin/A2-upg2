@@ -1,116 +1,212 @@
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>[ESC] Hacker Escape Rooms</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='output.css'>
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body>
     <header class="header">
-        <img class="header__logo" src="images/logo.png">
-        <h1 class="header__title">Hacker Escape Rooms</h1>
+      <img class="header__logo" src="images/logo.png" />
+      <h1 class="header__title">Hacker Escape Rooms</h1>
 
-        <button class="header__hamburger" id="menu-btn"></button>
-        
-        <nav id="nav-menu">
-            <ul class="header__nav" id="nav-menu__list">
-                <li><a class="header__nav__element" href="src/challengesPage/challenges.html?challengeType=online">Play online</a></li>
-                <li><a class="header__nav__element" href="src/challengesPage/challenges.html?challengeType=onsite">Play on-site</a></li>
-                <li><a class="header__nav__element">The story</a></li>
-                <li><a class="header__nav__element">Contact us</a></li>
-            </ul>
-        </nav>
+      <button class="header__hamburger" id="menu-btn"></button>
 
-        <picture class="header__img-container">
-            <img class="header__img-container__img" src="images/main-img.png">
-        </picture>
+      <nav id="nav-menu">
+        <ul class="header__nav" id="nav-menu__list">
+          <li>
+            <a
+              class="header__nav__element"
+              href="src/challengesPage/challenges.html?challengeType=online"
+              >Play online</a
+            >
+          </li>
+          <li>
+            <a
+              class="header__nav__element"
+              href="src/challengesPage/challenges.html?challengeType=onsite"
+              >Play on-site</a
+            >
+          </li>
+          <li><a class="header__nav__element">The story</a></li>
+          <li><a class="header__nav__element">Contact us</a></li>
+        </ul>
+      </nav>
+
+      <nav id="nav-menu">
+        <ul class="header__nav" id="nav-menu__list">
+          <li>
+            <a
+              class="header__nav__element"
+              href="challenges.html?challengeType=online"
+              >Play online</a
+            >
+          </li>
+          <li>
+            <a
+              class="header__nav__element"
+              href="challenges.html?challengeType=onsite"
+              >Play on-site</a
+            >
+          </li>
+          <li><a class="header__nav__element">The story</a></li>
+          <li><a class="header__nav__element">Contact us</a></li>
+        </ul>
+      </nav>
+
+      <picture class="header__img-container">
+        <img class="header__img-container__img" src="images/main-img.png" />
+      </picture>
     </header>
 
     <nav class="btns">
-        <a class="btns__on-site" href="src/challengesPage/challenges.html?challengeType=onsite">On-site challenges</a>
-        <a class="btns__online" href="src/challengesPage/challenges.html?challengeType=online">Online challenges</a>
+      <a
+        class="btns__on-site"
+        href="src/challengesPage/challenges.html?challengeType=onsite"
+        >On-site challenges</a
+      >
+      <a
+        class="btns__online"
+        href="src/challengesPage/challenges.html?challengeType=online"
+        >Online challenges</a
+      >
     </nav>
 
     <section class="quotes-container">
-        <div class="quotes">
-        <img class="quotes__img" src="images/person.png">
-        <p class="quotes__text">This is a quote about how amazing this place is and how much fun me and my friends had when we tried it</p>
-        <small class="quotes__tag">John Doe, visited us in September 2021</small>
-        </div>
+      <div class="quotes">
+        <img class="quotes__img" src="images/person.png" />
+        <p class="quotes__text">
+          This is a quote about how amazing this place is and how much fun me
+          and my friends had when we tried it
+        </p>
+        <small class="quotes__tag"
+          >John Doe, visited us in September 2021</small
+        >
+      </div>
 
-        <div class="quotes-2">
-            <img class="quotes-2__img" src="images/person.png">
-            <p class="quotes-2__text">This is a quote about how amazing this place is and how much fun me and my friends had when we tried it</p>
-            <small class="quotes-2__tag">John Doe, visited us in September 2021</small>
-        </div>
+      <div class="quotes-2">
+        <img class="quotes-2__img" src="images/person.png" />
+        <p class="quotes-2__text">
+          This is a quote about how amazing this place is and how much fun me
+          and my friends had when we tried it
+        </p>
+        <small class="quotes-2__tag"
+          >John Doe, visited us in September 2021</small
+        >
+      </div>
     </section>
 
-     
     <section class="popular-rooms-container">
-        <h1 class="popular-rooms-title">Popular challenges right now</h1>
-        <div class="popular-rooms" id="top-challenges"></div>
-
+      <h1 class="popular-rooms-title">Popular challenges right now</h1>
+      <div class="popular-rooms" id="top-challenges"></div>
     </section>
 
     <nav class="btns">
-        <a class="btns__on-site" href="src/challengesPage/challenges.html?challengeType=onsite">On-site challenges</a>
-        <a class="btns__online" href="src/challengesPage/challenges.html?challengeType=online">Online challenges</a>
+      <a
+        class="btns__on-site"
+        href="src/challengesPage/challenges.html?challengeType=onsite"
+        >On-site challenges</a
+      >
+      <a
+        class="btns__online"
+        href="src/challengesPage/challenges.html?challengeType=online"
+        >Online challenges</a
+      >
     </nav>
 
     <section class="panels">
-        <div class="panels__info">
-            <p class="panels__info__text">Quodsi haberent magnalia inter potentiam et divitias, et non illam quidem haec eo spectant haec quoque vos omnino desit illud quo solo felicitatis libertatisque perficiuntur.</p>
-            <a class="panels__info__btn">Read the full story</a>
-        </div>
+      <div class="panels__info">
+        <p class="panels__info__text">
+          Quodsi haberent magnalia inter potentiam et divitias, et non illam
+          quidem haec eo spectant haec quoque vos omnino desit illud quo solo
+          felicitatis libertatisque perficiuntur.
+        </p>
+        <a class="panels__info__btn">Read the full story</a>
+      </div>
 
-        <img class="panels__img1" src="images/image 1.jpg">
+      <img class="panels__img1" src="images/image 1.jpg" />
 
-        <article class="panels__1">
-            <h1 class="panels__1__title">Play with your friends or build your team stronger at work</h1>
-            <p class="panels__1__text">Praeterea, ex culpa non invenies unum aut non accusatis unum. Et nihil inuitam. Nemo nocere tibi erit, et non inimicos, et</p>
-            <a class="panels__1__btn" href="src/challengesPage/challenges.html?challengeType=onsite">Book on-site today</a>
-        </article>
+      <article class="panels__1">
+        <h1 class="panels__1__title">
+          Play with your friends or build your team stronger at work
+        </h1>
+        <p class="panels__1__text">
+          Praeterea, ex culpa non invenies unum aut non accusatis unum. Et nihil
+          inuitam. Nemo nocere tibi erit, et non inimicos, et
+        </p>
+        <a
+          class="panels__1__btn"
+          href="src/challengesPage/challenges.html?challengeType=onsite"
+          >Book on-site today</a
+        >
+      </article>
 
-        <img class="panels__img2" src="images/image 2.jpg">
+      <img class="panels__img2" src="images/image 2.jpg" />
 
-        <article class="panels__2">
-            <h1 class="panels__2__title">Play online or visit our venue for one of our 25 escape rooms</h1>
-            <p class="panels__2__text">Praeterea, ex culpa non invenies unum aut non accusatis unum. Et nihil inuitam. Nemo nocere tibi erit, et non inimicos, et</p>
-            <a class="panels__2__btn" href="src/challengesPage/challenges.html">See all challenges</a>
-        </article>
+      <article class="panels__2">
+        <h1 class="panels__2__title">
+          Play online or visit our venue for one of our 25 escape rooms
+        </h1>
+        <p class="panels__2__text">
+          Praeterea, ex culpa non invenies unum aut non accusatis unum. Et nihil
+          inuitam. Nemo nocere tibi erit, et non inimicos, et
+        </p>
+        <a class="panels__2__btn" href="src/challengesPage/challenges.html"
+          >See all challenges</a
+        >
+      </article>
     </section>
 
     <footer class="footer">
-        <div class="footer__info">
-            <h2 class="footer__info__title">[Esc] Hacker Escape Rooms</h2>
-            <p class="footer__info__text">Quodsi haberent magnalia inter potentiam et divitias, et non illam quidem haec eo spectant haec quoque vos omnino desit illud quo solo felicitatis libertatisque perficiuntur.</p>
-        </div>
+      <div class="footer__info">
+        <h2 class="footer__info__title">[Esc] Hacker Escape Rooms</h2>
+        <p class="footer__info__text">
+          Quodsi haberent magnalia inter potentiam et divitias, et non illam
+          quidem haec eo spectant haec quoque vos omnino desit illud quo solo
+          felicitatis libertatisque perficiuntur.
+        </p>
+      </div>
 
-        <nav class="footer__site-map">
-            <h2 class="footer__site-map__title">Site map</h2>
-            <ul class="footer__site-map__list">
-                <li><a class="footer__site-map__list__story">The Story</a></li>
-                <li><a class="footer__site-map__list__contact">Contact Us</a></li>
-                <li><a class="footer__site-map__list__legal">Legal</a></li>
-                <br>
-                <li><a class="footer__site-map__list__online" href="src/challengesPage/challenges.html?challengeType=online">Play online</a></li>
-                <li><a class="footer__site-map__list__on-site" href="src/challengesPage/challenges.html?challengeType=onsite">Play on-site</a></li>
-            </ul>
-        </nav>
+      <nav class="footer__site-map">
+        <h2 class="footer__site-map__title">Site map</h2>
+        <ul class="footer__site-map__list">
+          <li><a class="footer__site-map__list__story">The Story</a></li>
+          <li><a class="footer__site-map__list__contact">Contact Us</a></li>
+          <li><a class="footer__site-map__list__legal">Legal</a></li>
+          <br />
+          <li>
+            <a
+              class="footer__site-map__list__online"
+              href="src/challengesPage/challenges.html?challengeType=online"
+              >Play online</a
+            >
+          </li>
+          <li>
+            <a
+              class="footer__site-map__list__on-site"
+              href="src/challengesPage/challenges.html?challengeType=onsite"
+              >Play on-site</a
+            >
+          </li>
+        </ul>
+      </nav>
 
-        <nav class="footer__follow">
-            <h2 class="footer__follow__title">Follow us on</h2>
-            <ul class="footer__follow__list">
-                <li><a class="footer__follow__list__fb">Facebook</a></li>
-                <li><a class="footer__follow__list__ig">Instagram</a></li>
-                <li><a class="footer__follow__list__t">Twitter</a></li>
-            </ul>
-        </nav>
+      <nav class="footer__follow">
+        <h2 class="footer__follow__title">Follow us on</h2>
+        <ul class="footer__follow__list">
+          <li><a class="footer__follow__list__fb">Facebook</a></li>
+          <li><a class="footer__follow__list__ig">Instagram</a></li>
+          <li><a class="footer__follow__list__t">Twitter</a></li>
+        </ul>
+      </nav>
     </footer>
 
-       <div class="room-booking-modal">
+    <div class="room-booking-modal">
       <div class="room-booking-modal__content">
         <button class="room-booking-modal__close" type="button">x</button>
 
@@ -123,12 +219,11 @@
           <input type="date" class="room-booking-modal__date" id="date" />
           <br />
           <div class="confirm-date">
+            <div class="available-times-container"></div>
             <button class="confirm-booking-btn" type="button">
               Search available times
             </button>
           </div>
-          <p class="booking-error" style="display: none"></p>
-          <div class="available-times-container"></div>
         </div>
         <!-- STEG 2: Booking form -->
         <form class="booking-form" data-step="2" hidden>
@@ -154,17 +249,13 @@
         <section class="thank-you" data-step="3" hidden>
           <h1>Thank you!</h1>
           <p>
-            <a href="challenges.html"
-              >Back to challanges</a
-            >
+            <a href="challenges.html">Back to challanges</a>
           </p>
         </section>
       </div>
-    </div>      
-
-        
+    </div>
 
     <script type="module" src="src/bookingModal/booking.js"></script>
     <script type="module" src="src/scripts/script.js"></script>
-</body>
+  </body>
 </html>

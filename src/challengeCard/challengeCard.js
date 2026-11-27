@@ -96,8 +96,7 @@ export function createRatingStars(rating) {
     let starClass = "challenges__card__star";
     if (isHalfStar) {
       starClass += " challenges__card__star--half";
-    }
-    else if (isActive) {
+    } else if (isActive) {
       starClass += " challenges__card__star--active";
     }
     stars += `<span class="${starClass}">★</span>`;

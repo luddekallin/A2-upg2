@@ -21,17 +21,17 @@ test("should generate 2 emty stars", () => {
 });
 
 test("should  generate emty stars when rating is 0", () => {
-    const stars = createRatingStars(0);
-    const halfStars = stars.split("challenges__card__star--half");
-    const activeStars = stars.split("challenges__card__star--active");
-    const emptyStars = stars.split('challenges__card__star"');
-    expect(emptyStars.length - 1).toBe(5);
-    expect(halfStars.length - 1).toBe(0);
-    expect(activeStars.length - 1).toBe(0);
+  const stars = createRatingStars(0);
+  const halfStars = stars.split("challenges__card__star--half");
+  const activeStars = stars.split("challenges__card__star--active");
+  const emptyStars = stars.split('challenges__card__star"');
+  expect(emptyStars.length - 1).toBe(5);
+  expect(halfStars.length - 1).toBe(0);
+  expect(activeStars.length - 1).toBe(0);
 });
 
 test("should generate 5 active stars when rating is 5", () => {
-    const stars = createRatingStars(5);
-    const activeStars = stars.split("challenges__card__star--active");
-    expect(activeStars.length - 1).toBe(5);
+  const stars = createRatingStars(5);
+  const activeStars = stars.split("challenges__card__star--active");
+  expect(activeStars.length - 1).toBe(5);
 });

@@ -6,27 +6,25 @@ export async function loadChallenges() {
     );
 
     if (!response.ok) {
-      throw new Error(
-        `Error: ${response.status} ${response.statusText}`,
-      );
+      throw new Error(`Error: ${response.status} ${response.statusText}`);
     }
 
     const data = await response.json();
-    return Array.isArray(data)
-      ? data
-      : (data.challenges ?? []);
-
+    return Array.isArray(data) ? data : (data.challenges ?? []);
   } catch (error) {
     console.error("Kunde inte ladda challenges från API:t:", error);
   }
 }
 
-export async function getAvailableTime(selectedDate, selectedChallengeId, availableTimesContainer) {
+export async function getAvailableTime(
+  selectedDate,
+  selectedChallengeId,
+  availableTimesContainer,
+) {
   try {
-
     // Hämtar lediga tider för valt rum
     const response = await fetch(
-      `https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=${selectedDate}&challenge=${selectedChallengeId}`
+      `https://lernia-sjj-assignments.vercel.app/api/booking/available-times?date=${selectedDate}&challenge=${selectedChallengeId}`,
     );
 
     if (!response.ok) {
@@ -38,19 +36,14 @@ export async function getAvailableTime(selectedDate, selectedChallengeId, availa
     console.log("Available times:", availableTimes);
 
     return availableTimes;
-
   } catch (error) {
-
     console.error(error);
 
     if (availableTimesContainer) {
-      availableTimesContainer.textContent =
-        "Could not load available times.";
+      availableTimesContainer.textContent = "Could not load available times.";
     }
   }
-  
 }
-
 
 // Api för booking (Ida)
 export async function bookingReservation(bookingData) {
@@ -68,5 +61,3 @@ export async function bookingReservation(bookingData) {
   const data = await res.json();
   return data;
 }
-
-

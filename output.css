@@ -1001,27 +1001,27 @@ h4 {
 .footer__site-map {
   margin-bottom: 1.8rem;
 }
-.footer__title {
+.footer__site-map__title {
   font-weight: bold;
   margin-bottom: 0.4rem;
 }
-.footer__list {
+.footer__site-map__list {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-.footer__online, .footer__on-site {
+.footer__site-map__list__online, .footer__site-map__list__on-site {
   text-decoration: none;
   color: white;
 }
 .footer__follow {
   margin-bottom: 1rem;
 }
-.footer__title {
+.footer__follow__title {
   font-weight: bold;
   margin-bottom: 0.4rem;
 }
-.footer__list {
+.footer__follow__list {
   list-style-type: none;
   padding: 0;
   margin: 0;
